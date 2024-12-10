@@ -20,6 +20,14 @@
 
 ---
 
+# Khả năng của JavaScript với HTML DOM
+
+-   Thay đổi phần tử, thuộc tính, và kiểu CSS.
+-   Thêm hoặc xóa phần tử và thuộc tính.
+-   Xử lý hoặc tạo sự kiện mới.
+
+---
+
 # Các Phương Thức Cơ Bản của DOM (DOM core) và HTML DOM
 
 | Phương thức                            | DOM Core   | HTML DOM   |
@@ -58,15 +66,6 @@
 
 -   **Event Bubbling**: Sự kiện lan từ phần tử con đến cha.
 -   **Event Capturing**: Sự kiện lan từ phần tử cha đến con.
-
----
-
-# Cây Đối Tượng DOM
-
--   **Khả năng của JavaScript với DOM**:
-    -   Thay đổi phần tử, thuộc tính, và kiểu CSS.
-    -   Thêm hoặc xóa phần tử và thuộc tính.
-    -   Xử lý hoặc tạo sự kiện mới.
 
 ---
 
