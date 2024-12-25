@@ -12,11 +12,11 @@ Trong ví dụ cơ bản, một hàm callback có thể được sử dụng đ�
 
 // Hàm callback đơn giản
 function greet(name) {
-  console.log("Hello, " + name);
+console.log("Hello, " + name);
 }
 // Hàm nhận một hàm khác làm đối số
 function processUserInput(callback) {
-  var name = 'Alice'; 
-  callback(name);  // Gọi hàm callback với tên người dùng
+var name = 'Alice'; 
+callback(name);  // Gọi hàm callback với tên người dùng
 }
 processUserInput(greet);  // Truyền hàm greet như một hàm callback
