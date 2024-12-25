@@ -1,5 +1,5 @@
 ****Callback Functions**** (Hàm gọi lại)
-<p style="color:red;">Đoạn văn bản này sẽ có màu đỏ.</p>
+
 Là những hàm được truyền vào như đối số cho một hàm khác và sẽ được gọi khi tác vụ bất đồng bộ hoàn thành.
 Ví dụ: 
   function doSomethingAsync(callback) {
