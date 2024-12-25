@@ -1,3 +1,5 @@
+**Asynchronous JavaScript**
+
 JavaScript là một ngôn ngữ đơn luồng, có nghĩa là nó chỉ có thể thực hiện một tác vụ tại một thời điểm. Điều này khá đơn giản nhưng lại gây vấn đề khi bạn cần thực hiện những công việc tốn thời gian, như gọi dữ liệu từ một API. Nếu JavaScript phải chờ xong tác vụ đó mới làm việc khác, trang web của bạn sẽ "đóng băng" và không phản hồi.
 
 Để giải quyết vấn đề này, asynchronous JavaScript (lập trình bất đồng bộ) ra đời. Nó cho phép JavaScript tiếp tục làm các công việc khác trong khi chờ đợi các tác vụ dài hoàn thành, thay vì "đứng hình".
