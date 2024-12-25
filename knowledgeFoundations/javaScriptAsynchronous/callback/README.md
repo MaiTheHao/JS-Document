@@ -29,8 +29,8 @@ processUserInput(greet);  // Truyền hàm greet như một hàm callback
 ```
 
 **Giải thích:**
-- _greet_ là hàm callback.
-- _processUserInput_ nhận một hàm làm đối số và gọi nó sau khi thực hiện công việc của mình.
+- `greet` là hàm callback.
+- `processUserInput` nhận một hàm làm đối số và gọi nó sau khi thực hiện công việc của mình.
 
 ---
 
@@ -55,23 +55,24 @@ fetchData(displayData);
 ```
 
 **Giải thích:**
-- _fetchData_ mô phỏng việc lấy dữ liệu từ máy chủ không đồng bộ.
-- Sau khi dữ liệu được lấy (sau 2 giây), hàm callback _displayData_ sẽ được gọi với dữ liệu đã lấy.
+- `fetchData` mô phỏng việc lấy dữ liệu từ máy chủ không đồng bộ.
+- Sau khi dữ liệu được lấy (sau 2 giây), hàm callback `displayData` sẽ được gọi với dữ liệu đã lấy.
 
 ---
 
 ### **Ví dụ 3: Hàm Callback với xử lý lỗi (Thường thấy trong Node.js)**
-Khi làm việc với các hàm callback trong Node.js hoặc các môi trường không đồng bộ khác, thường có xử lý lỗi trong callback. Tham số đầu tiên của callback thường dành cho lỗi, và tham số thứ hai dành cho kết quả.
+Khi làm việc với các hàm callback trong *Node.js* hoặc các môi trường không đồng bộ khác, thường có xử lý lỗi trong callback. Tham số đầu tiên của callback thường dành cho lỗi, và tham số thứ hai dành cho kết quả.
 
 ```Javascript
-function fetchDataWithErrorHandling(callback) {
+function fetch_Data_With_Error_Handling(callback) {
   setTimeout(function() {
     const error = null;
     const data = "Fetched data successfully";
     
     if (error) {
       callback(error, null);  // Gọi hàm callback với lỗi là tham số đầu tiên
-    } else {
+    } 
+    else {
       callback(null, data);  // Gọi hàm callback với null là lỗi và dữ liệu là tham số thứ hai
     }
   }, 2000);
@@ -80,41 +81,41 @@ function fetchDataWithErrorHandling(callback) {
 function handleData(error, data) {
   if (error) {
     console.log("Error occurred: " + error);
-  } else {
+  } 
+  else {
     console.log("Data received: " + data);
   }
 }
-
-fetchDataWithErrorHandling(handleData);
+fetch_Data_With_Error_Handling(handleData);
 ```
 
 Giải thích:
-- Hàm callback _handleData_ được gọi với hai tham số: _error_ và _data_.
+- Hàm callback `handleData` được gọi với hai tham số: `error` và `data`.
 - Nếu có lỗi, tham số đầu tiên chứa lỗi và tham số thứ hai là null. Nếu không có lỗi, tham số thứ hai chứa dữ liệu.
 
 ---
 
 ### **Ví dụ 4: Sử dụng Callback trong các trình xử lý sự kiện**
-Callback cũng thường được sử dụng trong các trình xử lý sự kiện trong JavaScript, như khi xử lý sự kiện click:
+Callback cũng thường được sử dụng trong các trình xử lý sự kiện trong JavaScript, như khi xử lý sự kiện `click`:
 
 ```Javascript
 // Thêm một trình xử lý sự kiện với hàm callback
 document.getElementById('button').addEventListener('click', function() {
-  alert("Button clicked!");
+  alert("Button clicked! Hohoho.");
 });
 ```
 Giải thích:
-Hàm được truyền vào addEventListener là một callback sẽ được thực thi khi sự kiện "_click_" xảy ra.
+Hàm được truyền vào `addEventListener` là một callback sẽ được thực thi khi sự kiện `click` xảy ra.
 
 ---
 
 ### **Lợi ích của hàm Callback:**
 
 1. **Hành vi không đồng bộ**: Callbacks cho phép bạn xử lý các tác vụ không đồng bộ mà không làm tắc nghẽn luồng chính.
-2. **Tính linh hoạt**: Bạn có thể truyền các hàm callback khác nhau cho các tác vụ khác nhau, làm cho mã trở nên dễ dàng mở rộng và tái sử dụng.
-3. **Xử lý lỗi**: Với các callback theo kiểu "_lỗi đầu tiên_" (error-first), bạn có thể dễ dàng xử lý lỗi trong các tác vụ không đồng bộ.
+2. **Tính linh hoạt**: Bạn có thể truyền các hàm callback khác nhau cho các tác vụ khác nhau, làm cho mã dễ dàng mở rộng và tái sử dụng.
+3. **Xử lý lỗi**: Với các callback theo kiểu "lỗi đầu tiên" (*error-first*), bạn có thể dễ dàng xử lý lỗi trong các tác vụ không đồng bộ.
 
 ### **Nhược điểm của hàm Callback:**
 
-1. **Callback Hell:** Nếu có quá nhiều hàm callback lồng nhau, mã sẽ trở nên phức tạp và khó đọc, thường gọi là "_callback hell_" hoặc "_pyramid of doom_". Điều này có thể được giải quyết bằng cách sử dụng Promises hoặc cú pháp async/await.
+1. **Callback Hell:** Nếu có quá nhiều hàm callback lồng nhau, mã sẽ trở nên phức tạp và khó đọc, thường gọi là "_callback hell_" hoặc "_pyramid of doom_". Điều này có thể được giải quyết bằng cách sử dụng *Promises* hoặc cú pháp *async*/*await*.
 2. **Khó Debug:** Vì các callback thường thực thi không đồng bộ, việc theo dõi luồng chương trình có thể gặp khó khăn, làm cho việc gỡ lỗi trở nên phức tạp hơn.
