@@ -31,10 +31,36 @@ let promise = new Promise(function(resolve, reject) {
 
 # Các phương thức cơ bản của Promise
 
-1. **then()**
+1. ### **then()**
 
 Phương thức ```then()``` được sử dụng để chỉ định hàm callback sẽ được gọi khi Promise hoàn thành thành công (*fulfilled*). Nó nhận hai tham số:
 
 - Tham số 1 (*resolve_Handler*): Hàm sẽ được gọi khi Promise được giải quyết thành công.
 - Tham số 2 (*reject_Handler*): Hàm sẽ được gọi khi Promise bị lỗi (tuy nhiên, tham số này là tùy chọn).
 
+```Javascript
+promise.then(resolveHandler, rejectHandler);
+```
+
+Ví dụ sử dụng ```then()```:
+
+``` Javascript
+let promise = new Promise(function(resolve, reject) {
+  let success = true;
+  if(success) {
+    resolve("Tác vụ thành công!");
+  } else {
+    reject("Có lỗi xảy ra!");
+  }
+});
+
+promise.then(function(result) {
+  console.log(result);  // In ra "Tác vụ thành công!"
+}).catch(function(error) {
+  console.log(error);  // Nếu có lỗi xảy ra, in ra lỗi
+});
+```
+
+Trong ví dụ trên:
+- ```then()``` được gọi khi Promise thành công, và kết quả được hiển thị qua `console.log()`.
+- Nếu có lỗi xảy ra, phương thức `catch()` sẽ được gọi.
