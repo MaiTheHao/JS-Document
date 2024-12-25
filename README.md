@@ -4,7 +4,7 @@
 
 -   Mai Thế Hào
 -   Trần Duy Phúc
--   Hồ Đức Minh
+-   Hồ Nguyễn Đức Minh
 
 ---
 
