@@ -33,7 +33,7 @@ let promise = new Promise(function(resolve, reject) {
 
 1. ### **then()**
 
-Phương thức ```then()``` được sử dụng để chỉ định hàm callback sẽ được gọi khi Promise hoàn thành thành công (*fulfilled*). Nó nhận hai tham số:
+Phương thức `then()` được sử dụng để chỉ định hàm callback sẽ được gọi khi Promise hoàn thành thành công (*fulfilled*). Nó nhận hai tham số:
 
 - Tham số 1 (*resolve_Handler*): Hàm sẽ được gọi khi Promise được giải quyết thành công.
 - Tham số 2 (*reject_Handler*): Hàm sẽ được gọi khi Promise bị lỗi (tuy nhiên, tham số này là tùy chọn).
