@@ -98,7 +98,7 @@ async function findUserById(id, callback) {
 
     if(!user) {
       // Ném lỗi nếu không tìm thấy người dùng, ném lỗi sẽ được bắt bởi catch
-      throw new Error("Không tìm thấy người dùng"); 
+      throw new Error("Không tìm thấy người dùng");
     }
 
     response.data = user;
@@ -108,7 +108,7 @@ async function findUserById(id, callback) {
   }
 
   // Gọi callback
-  callback(response.error, response.data); 
+  callback(response.error, response.data);
 }
 
 // Hàm callback để xử lý kết quả
@@ -158,4 +158,53 @@ Hàm được truyền vào `addEventListener` là một callback sẽ được 
 
 1. **Callback Hell:** Nếu có quá nhiều hàm callback lồng nhau, mã sẽ trở nên phức tạp và khó đọc, thường gọi là "_callback hell_" hoặc "_pyramid of doom_". Điều này có thể được giải quyết bằng cách sử dụng _Promises_ hoặc cú pháp _async_/_await_.
 2. **Khó Debug:** Vì các callback thường thực thi không đồng bộ, việc theo dõi luồng chương trình có thể gặp khó khăn, làm cho việc gỡ lỗi trở nên phức tạp hơn.
-3. **Vấn đề this trong function thường:** Khi truyền callback là "_function expression_", "_this_" có thể bị thay đổi ngoài ý muốn. Sử dụng "_arrow function_" giúp giữ nguyên "_this_", tránh lỗi và giảm nhu cầu dùng "_.bind(this)_".
+
+### **Vấn Đề Với `this` Giữa Arrow Function và Regular Function**
+
+#### 1. Sử dụng `this` trong Regular Function
+
+Trong các hàm thông thường (regular functions), `this` tham chiếu đến đối tượng gọi hàm (được xác định tại thời điểm chạy - runtime binding). Giá trị của `this` có thể thay đổi tùy vào cách gọi hàm (gọi từ một phương thức, sự kiện hoặc phạm vi toàn cục).
+
+**Ví dụ:** Trong đoạn mã sau, `this` tham chiếu đến đối tượng `obj`, do đó kết quả sẽ là thuộc tính `name` của đối tượng này.
+
+```javascript
+const obj = {
+	name: "DuckMinh",
+	greet: function () {
+		console.log(this.name);
+	},
+};
+obj.greet();
+```
+
+**Output:**
+
+```
+DuckMinh
+```
+
+---
+
+#### 2. Sử dụng `this` trong Arrow Function
+
+Trong arrow functions, `this` được kế thừa từ phạm vi bao quanh nó (lexical scope), thay vì được xác định bởi cách gọi hàm. Điều này có nghĩa là giá trị của `this` sẽ giữ nguyên từ nơi hàm arrow được định nghĩa.
+
+*Lưu ý: một object literal sẽ có '{}' bao bọc, và nó không tạo ra lexical scope nhưng function, class, v.v thì sẽ tạo ra lexical scope*
+
+**Ví dụ:** Do arrow function không có `this` riêng, nó kế thừa `this` từ phạm vi bên ngoài, dẫn đến `this.name` bị `undefined`. 
+
+```javascript
+const obj = {
+	name: "DuckMinh",
+	greet: () => {
+		console.log(this.name);
+	},
+};
+obj.greet();
+```
+
+**Output:**
+
+```
+undefined
+```
