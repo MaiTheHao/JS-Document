@@ -13,7 +13,6 @@
     -   [**objectArrayString**](knowledgeFoundations/objectArrayString)
     -   [**javaScriptAsynchronous**](knowledgeFoundations/javaScriptAsynchronous)
         - [**callback**](knowledgeFoundations/javaScriptAsynchronous/callback)
-        - [**asynchoronous**](knowledgeFoundations/javaScriptAsynchronous/asynchoronous)
         - [**promise**](knowledgeFoundations/javaScriptAsynchronous/promise)
         - [**asyncAwait**](knowledgeFoundations/javaScriptAsynchronous/asyncAwait)
 

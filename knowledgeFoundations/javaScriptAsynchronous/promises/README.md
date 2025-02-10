@@ -15,12 +15,16 @@ Một Promise được tạo ra thông qua cú pháp:
 
 ``` Javascript
 let promise = new Promise(function(resolve, reject) {
-  // Thực hiện một tác vụ bất đồng bộ (ví dụ gọi API, đọc file...)
-  if (/* thành công */) {
-    resolve(result);  // Gọi resolve khi thành công
-  } else {
-    reject(error);  // Gọi reject khi có lỗi
-  }
+  // Mô phỏng việc fetch dữ liệu từ database
+  setTimeout(() => {
+    const status = Math.random() > 0.5;  // Mô phỏng tác vụ với xác suất thành công 50%
+
+    if (status) {
+      resolve("Dữ liệu lấy thành công!");  // Gọi resolve khi thành công
+    } else {
+      reject("Có lỗi xảy ra khi lấy dữ liệu!");  // Gọi reject khi có lỗi
+    }
+  }, 2000);  // Giả lập tác vụ tốn 2 giây
 });
 ```
 
@@ -70,7 +74,7 @@ Trong ví dụ trên:
 Phương thức `catch()` được sử dụng để bắt lỗi khi Promise bị từ chối (rejected). Nó nhận một tham số là hàm callback, sẽ được gọi khi có lỗi xảy ra trong quá trình thực thi.
 
 ```Javascript
-promise.catch(function(error) {
+promise.catch((error) => {
   console.log("Lỗi:", error);
 });
 ```
@@ -80,8 +84,21 @@ promise.catch(function(error) {
 Phương thức `finally()` được gọi khi một Promise hoàn thành, dù cho kết quả là thành công hay lỗi. Nó thường được sử dụng để thực hiện các tác vụ dọn dẹp hoặc kết thúc, chẳng hạn như đóng kết nối hoặc ẩn các thông báo tải.
 
 ```Javascript
-promise.finally(function() {
-  console.log("Promise đã hoàn tất");
+new Promise((resolve, reject) => {
+  setTimeout(() => {
+    const status = Math.random() > 0.5;
+    if (status) {
+      resolve("Tác vụ hoàn thành!");
+    } else {
+      reject("Có lỗi xảy ra!");
+    }
+  }, 2000);
+}).then(result => {
+  console.log(result);
+}).catch(error => {
+  console.log(error);
+}).finally(() => {
+  console.log("Kết thúc tác vụ!");
 });
 ```
 
@@ -112,7 +129,12 @@ Promise.all([promise1, promise2]).then(results => {
 
 #### 5. *Promise.race()*
 
-`Promise.race()` tương tự như Promise.all(), nhưng khác ở chỗ nó chỉ trả về kết quả của Promise nào được giải quyết (*fulfilled*) hoặc bị từ chối (rejected) đầu tiên, thay vì đợi tất cả các Promise hoàn thành.
+`Promise.race()` là một phương thức xử lý nhiều Promise song song, với đặc điểm:
+
+- Trả về một Promise mới chứa kết quả của Promise **đầu tiên** hoàn thành
+- "Hoàn thành" ở đây có thể là thành công (*fulfilled*) hoặc thất bại (*rejected*)
+- Không quan tâm đến kết quả của các Promise còn lại
+- Tên "race" (đua) phản ánh việc các Promise "đua" nhau để về đích đầu tiên
 
 ```javascript
 Promise.race([promise1, promise2])
