@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Bài 6</title>
+	</head>
+	<body>
+		<ul>
+			<li>
+				<img
+					src="https://th.bing.com/th/id/OIP.486fk94xear4Agy50T_G5QHaFj?w=225&h=180&c=7&r=0&o=5&dpr=2.5&pid=1.7"
+					alt="Doraemon nhìn thấy gì vậy ?"
+				/>
+			</li>
+			<li>
+				<img
+					src="https://th.bing.com/th?id=OIP.bC4HZgxvz5DWo2LO1iLhrQHaHZ&w=250&h=249&c=8&rs=1&qlt=90&o=6&dpr=2.5&pid=3.1&rm=2"
+					alt="Cheems rất yêu anh ta"
+				/>
+			</li>
+			<li>
+				<img
+					src="https://th.bing.com/th?id=OIP.5HfJ_9YrUDix1r8xRiPBWQHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=2.5&pid=3.1&rm=2"
+					alt="Diddy và những chai sữa tắm ..."
+				/>
+			</li>
+			<li>
+				<img
+					src="https://www.bing.com/th?id=OIP.2RNJtmHTSn714CNHh9OVIAHaGL&w=189&h=185&c=8&rs=1&qlt=90&o=6&dpr=2.5&pid=3.1&rm=2"
+					alt="Chào cậu, mình là Thomas :)"
+				/>
+			</li>
+			<li>
+				<img
+					src="https://th.bing.com/th?id=OIP.2RARaiZcgSZMzrjSeBEuEgHaJ4&w=216&h=288&c=8&rs=1&qlt=90&o=6&dpr=2.5&pid=3.1&rm=2"
+					alt="Bạn muốn dùng thử ? Hãy điền thông tin chuyển khoản trước đã !!!"
+				/>
+			</li>
+		</ul>
+		<style>
+			ul {
+				display: flex;
+				list-style-type: none;
+				padding: 0;
+			}
+
+			li {
+				flex: 0 0 150px;
+				margin: 0 10px;
+			}
+
+			img {
+				max-width: 100%;
+				height: auto;
+				border: 2px solid pink;
+			}
+		</style>
+		<script>
+			// Lưu danh sách tất cả các thẻ img
+			const imgs = document.getElementsByTagName("img");
+			// Xử lí xự kiện click vào thẻ ảnh bất kỳ sẽ in ra attr alt của ảnh đó
+			Array.from(imgs).forEach((img) => {
+                img.addEventListener("click", (e) => {
+                    alert(e.target.alt)
+                })
+            })
+		</script>
+	</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Bài 3</title>
+	</head>
+	<body>
+		<ul id="list">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+        <button id="button">
+            Click here
+        </button>
+        <style>
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+        </style>
+        <script>
+            // Lưu thẻ danh sách vào biến
+            const list = document.getElementById('list');
+            // Lưu danh sách các thẻ li
+            const items = list.getElementsByTagName('li');
+            // Tạo hàm xóa đi phần tử khỏi danh sách
+            function removeItem(){
+                list.removeChild(items[items.length - 1]);
+            }
+
+            // Thêm lắng nghe sự kiện click vào button
+            document.getElementById("button").addEventListener("click", () => removeItem());
+        </script>
+	</body>
+</html>

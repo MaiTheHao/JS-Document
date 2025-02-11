@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Bài 1</title>
+	</head>
+	<body>
+		<div id="target">This is the element</div>
+		<style>
+			#target {
+				user-select: none;
+				width: 200px;
+				height: 200px;
+                background-color: blue;
+				color: #fff;
+				text-align: center;
+				line-height: 200px;
+				cursor: pointer;
+			}
+		</style>
+		<script>
+			// Tạo index ngẫu nhiên từ mảng màu:
+			const randomIndex = (arr) => Math.floor(Math.random() * arr.length);
+			// Mảng màu:
+			const colors = ["red", "green", "blue", "yellow", "purple"];
+
+			// Lấy đối tượng được chọn để thay đổi màu nền (id = "target"):
+			const target = document.getElementById("target");
+			// Thêm lắng nghe sự kiện "click" cho đối tượng được chọn:
+			target.addEventListener("click", () => {
+				// Thay đổi màu nền của đối tượng được chọn:
+				target.style.backgroundColor = colors[randomIndex(colors)];
+			});
+		</script>
+	</body>
+</html>

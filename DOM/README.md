@@ -77,3 +77,20 @@
 -   **HTML DOM**: Mô hình cho tài liệu HTML.
 
 ---
+
+# Luyện Tập
+_Danh sách bài giải ở đây [**solves**](./solves)_
+
+1.  **Thay đổi màu nền của một phần tử khi click vào nó.**
+2.  **Thêm một phần tử mới vào cuối danh sách.**
+3.  **Xóa một phần tử khỏi danh sách.**
+4.  **Thay đổi kích thước của một phần tử.**
+5.  **Hiển thị một thông báo khi chuột di chuyển qua một phần tử.**
+6.  **Hiển thị một thông báo khi một phần tử được click.**
+
+## Các bài tập thú vị hơn (không có sẵn lời giải)
+
+1. **Kéo thả ô từ vị trí này sang vị trí khác**
+2. **Nhập thể 2 block và tăng kích thước**
+3. **Tic-Tac-Toe**
+4. **Image Gallery**

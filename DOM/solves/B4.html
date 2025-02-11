@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Bài 4</title>
+	</head>
+	<body>
+		<div id="stone">
+            <img src="https://th.bing.com/th?id=OIP.IsOTeE0HP9ANb3M323FsPwHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=2.5&pid=3.1&rm=2" alt="Minecraft Stone"/>
+        </div>
+        <div>
+            <button id="reduce">-</button>
+            <button id="increase">+</button>
+        </div>
+        <style>
+            #stone {
+                aspect-ratio: 1;
+                width: 100px;
+                cursor: pointer;
+            }
+
+            img{
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+        <script>
+            // Lưu thẻ khối đá vào biến
+            const stone = document.getElementById('stone');
+            // Tạo hàm thay đổi kích thước với tham số là số lượng pixel
+            function resizeStone(pixel, action)
+            {
+                // Lấy kích thước hiện tại của khối đá, bởi vì là hình vuông nên chỉ cần width
+                const currentWidth = stone.offsetWidth;
+
+                // Xử lí các trường hợp tăng hoặc giảm kích thước
+                let newSize = null; // Đây là biến lưu giá trị kích thước mới, để thuận tiện cho việc kiểm tra kích thước hợp lệ
+                if(action === "increase"){
+                    newSize = currentWidth + pixel;
+                } else {
+                    newSize = currentWidth - pixel;
+                }
+
+                // Kiểm tra kích thước mới có hợp lệ không
+                if(newSize >= 50 && newSize <= 200){
+                    stone.style.width = newSize + "px";
+                }
+            }
+
+            const pixel = 50;
+            // Thêm lắng nghe sự kiện click vào button tăng kích thước
+            document.getElementById("increase").addEventListener("click", () => resizeStone(pixel, "increase"));
+            // Thêm lắng nghe sự kiện click vào button giảm kích thước
+            document.getElementById("reduce").addEventListener("click", () => resizeStone(pixel, "reduce"));
+
+            // Ta có thể thay đổi sự kiện "click" thành "mousedown" để thay đổi kích thước khi giữ nút chuột 
+            // Nhưng nếu làm vậy sẽ có thử thách về việc style lại các thẻ để cố định 2 button. Chúc bạn may mắn
+        </script>
+	</body>
+</html>
