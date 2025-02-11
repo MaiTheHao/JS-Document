@@ -1,4 +1,4 @@
-### Variables trong JavaScript
+## Variables trong JavaScript
 
 #### 1. Khái niệm về Biến (variables):
 
@@ -30,7 +30,7 @@ var z = 15;      // z là biến có thể thay đổi giá trị, nhưng phạm
 
 ---
 
-### Datatypes (Kiểu Dữ Liệu) trong JavaScript
+## Datatypes (Kiểu Dữ Liệu) trong JavaScript
 
 #### Khái Niệm về Kiểu Dữ Liệu:
 
