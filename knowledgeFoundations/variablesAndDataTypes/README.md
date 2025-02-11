@@ -45,10 +45,10 @@ Các kiểu dữ liệu này bao gồm các giá trị đơn giản và không t
   - *Ví dụ: `let num = 42;`*
 
 - `String`: Dùng để lưu trữ chuỗi văn bản.
-    - *Ví dụ: `let name = "John";`*
+    - *Ví dụ: `let name = "DuckMin";`*
 
 - `Boolean`: Dùng để lưu trữ hai giá trị: true hoặc false.
-    - *Ví dụ: `let isActive = true;`*
+    - *Ví dụ: `let isActive = false;`*
 
 - `Undefined`: Khi một biến được khai báo nhưng chưa được gán giá trị, nó có giá trị mặc định là undefined.
     - *Ví dụ: `let x; // x là undefined`*
