@@ -79,7 +79,6 @@
 ---
 
 # Luyện Tập
-_Danh sách bài giải ở đây [**solves**](./solves)_
 
 1.  **Thay đổi màu nền của một phần tử khi click vào nó.**
 2.  **Thêm một phần tử mới vào cuối danh sách.**
@@ -87,6 +86,7 @@ _Danh sách bài giải ở đây [**solves**](./solves)_
 4.  **Thay đổi kích thước của một phần tử.**
 5.  **Hiển thị một thông báo khi chuột di chuyển qua một phần tử.**
 6.  **Hiển thị một thông báo khi một phần tử được click.**
+_Danh sách bài giải ở đây [**solves**](./solves)_
 
 ## Các bài tập thú vị hơn (không có sẵn lời giải)
 
