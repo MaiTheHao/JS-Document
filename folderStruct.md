@@ -6,15 +6,15 @@
 # JS
 
 -   ## [knowledgeFoundations](knowledgeFoundations/README.md)
-    -   [**variablesAndDataTypes**](knowledgeFoundations/variablesAndDataTypes)
-    -   [**operators**](knowledgeFoundations/operators)
-    -   [**controlStructures**](knowledgeFoundations/controlStructures)
-    -   [**functionsAndScope**](knowledgeFoundations/functionsAndScope)
-    -   [**objectArrayString**](knowledgeFoundations/objectArrayString)
+    -   [**variablesAndDataTypes**](knowledgeFoundations/variablesAndDataTypes/README.md)
+    -   [**operators**](knowledgeFoundations/operators/README.md)
+    -   [**controlStructures**](knowledgeFoundations/controlStructures/README.md)
+    -   [**functionsAndScope**](knowledgeFoundations/functionsAndScope/README.md)
+    -   [**object**](knowledgeFoundations/object/README.md)
     -   [**javaScriptAsynchronous**](knowledgeFoundations/javaScriptAsynchronous)
-        - [**callback**](knowledgeFoundations/javaScriptAsynchronous/callback)
-        - [**promise**](knowledgeFoundations/javaScriptAsynchronous/promise)
-        - [**asyncAwait**](knowledgeFoundations/javaScriptAsynchronous/asyncAwait)
+        - [**callback**](knowledgeFoundations/javaScriptAsynchronous/callback/README.md)
+        - [**promise**](knowledgeFoundations/javaScriptAsynchronous/promise/README.md)
+        - [**asyncAwait**](knowledgeFoundations/javaScriptAsynchronous/asyncAwait/README.md)
 
 -   ## [DOM](DOM/README.md)
 
