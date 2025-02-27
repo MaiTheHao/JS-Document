@@ -1,12 +1,12 @@
 **Author:** _Mai Thế Hào_
 
-# 🌟 **Quy tắc tổ chức và xây dựng dự án** 🌟
+# 🌟 **QUY TẮC TỔ CHỨC VÀ XÂY DỰNG DỰ ÁN** 🌟
 
 ---
 
-## 📁 **1. Cấu trúc folder và file**
+## 📁 **1. CẤU TRÚC FOLDER VÀ FILE**
 
-### 🗂️ **1.1. Tổ chức folder**
+### 🗂️ **1.1. TỔ CHỨC FOLDER**
 
 -   Mỗi folder cần có một file `README.md` (viết hoa toàn bộ):
     -   **Mục đích**:
@@ -27,17 +27,38 @@
         -   Đảm bảo tất cả thành viên đều nắm rõ quy tắc tổ chức và xây dựng dự án.
         -   Dễ dàng truy cập và tham khảo khi cần thiết.
 
-### **1.2. Quy tắc đặt tên**
+### **1.2. QUY TẮC ĐẶT TÊN**
 
--   Sử dụng **camelCase** cho tên folder và file:
-    -   Ví dụ: `javaScriptAsynchronous`, `JSAsync`.
+-   Sử dụng **snake_case** cho tên folder và file:
+    -   Ví dụ: `javascript_asynchronous`, `js_async`.
     -   Ngoại trừ các trường hợp các từ viết tắt kỹ thuật như DOM, ES6, HTML, CSS, JS...
         -   **Trường hợp đặc biệt là README.md**
 -   Tên folder và file:
     -   Đặt hợp lý, đúng trọng tâm.
     -   Tránh sử dụng tên chung chung, thiếu ý nghĩa.
+    -   Không sử dụng ký tự đặc biệt, khoảng trắng hoặc chữ in hoa (ngoại trừ các từ viết tắt kỹ thuật).
+    -   Đảm bảo tên ngắn gọn nhưng đủ để mô tả nội dung.
+    -   Sử dụng tiếng Anh cho tên file và folder để đảm bảo tính nhất quán và dễ hiểu cho tất cả thành viên.
+-   Ví dụ:
+    -   `project_overview.md`
+    -   `user_guide.md`
+    -   `api_reference.md`
+    -   `css_styles`
+    -   `html_templates`
+-   Đối với các file tài liệu, tên file phải phản ánh đúng nội dung và chủ đề của tài liệu.
+    -   Ví dụ:
+        -   `installation_guide.md`
+        -   `troubleshooting.md`
+        -   `release_notes.md`
+-   Đối với các folder, tên folder phải phản ánh đúng nội dung chứa bên trong.
+    -   Ví dụ:
+        -   `images`
+        -   `scripts`
+        -   `styles`
+        -   `docs`
+-   Đảm bảo tên file và folder không trùng lặp trong cùng một cấp thư mục để tránh nhầm lẫn.
 
-### **1.3. Chia nhỏ nội dung**
+### **1.3. CHIA NHỎ NỘI DUNG**
 
 -   Phân tách nội dung thành nhiều file hoặc folder con thay vì lồng ghép:
     -   **Mục đích**:
@@ -48,7 +69,7 @@
         -   `DOM.md`
         -   `ES6.md`
 
-### **1.4. Quy tắc viết tài liệu**
+### **1.4. QUY TẮC VIẾT TÀI LIỆU**
 
 -   Tên file tài liệu `.md` phải được đặt bằng tiếng Anh và phải phản ánh đúng chủ đề của tài liệu.
     -   **Mục đích**:
@@ -64,9 +85,9 @@
 
 ---
 
-## 🛠️ **2. Quy tắc sử dụng Git**
+## 🛠️ **2. QUY TẮC SỬ DỤNG GIT**
 
-### **2.1. Quản lý cập nhật**
+### **2.1. QUẢN LÝ CẬP NHẬT**
 
 -   **Luôn cập nhật dữ liệu trước khi tiếp tục làm việc**:
     -   Sử dụng lệnh `git pull` trước khi chỉnh sửa.
@@ -74,7 +95,7 @@
 -   **Xử lý conflict**:
     -   Hãy xử lý xung đột cẩn thận và thảo luận với team nếu cần.
 
-### **2.2. Commit chi tiết**
+### **2.2. COMMIT CHI TIẾT**
 
 -   Viết commit rõ ràng, cụ thể:
 
@@ -88,7 +109,7 @@
         -   description. (có thể có)
         ```
 
-### **2.3. Sử dụng nhánh riêng**
+### **2.3. SỬ DỤNG NHÁNH RIÊNG**
 
 -   Tạo nhánh riêng ngoài `main` hoặc `master`:
     -   Phân chia công việc rõ ràng.
@@ -97,7 +118,7 @@
 
 ---
 
-## ⚡ **3. Lưu ý bổ sung**
+## ⚡ **3. LƯU Ý BỔ SUNG**
 
 -   **File `.gitignore`:**
     -   Quản lý dự án hiệu quả hơn.
@@ -108,9 +129,9 @@
 
 ---
 
-## 🗂️ **4. Mẫu cấu trúc folder**
+## 🗂️ **4. MẪU CẤU TRÚC FOLDER**
 
-### **4.1. Ví dụ:**
+### **4.1. VÍ DỤ:**
 
 ```plaintext
 repositoryRoot/
@@ -129,7 +150,7 @@ repositoryRoot/
 └── .gitignore             # Loại bỏ file không cần thiết
 ```
 
-### **4.2. Quy tắc mở rộng**
+### **4.2. QUY TẮC MỞ RỘNG**
 
 -   **Cập nhật `folderStruct.md` khi có thay đổi cấu trúc**:
     -   Mục đích: Dễ quản lý và đồng bộ.
@@ -138,7 +159,7 @@ repositoryRoot/
 
 ---
 
-## 🎯 **5. Kết luận**
+## 🎯 **5. KẾT LUẬN**
 
 -   Quy tắc trên đảm bảo việc tổ chức file và folder chặt chẽ, dễ quản lý.
 -   Hạn chế tối đa xung đột khi làm việc nhóm và cải thiện năng suất làm việc.
@@ -146,14 +167,14 @@ repositoryRoot/
 
 ---
 
-## ⚙️ **6. Tổng hợp các lệnh git quan trọng trong dự án**
+## ⚙️ **6. TỔNG HỢP CÁC LỆNH GIT QUAN TRỌNG TRONG DỰ ÁN**
 
-### 🛠️ **6.1. Cập nhật và đồng bộ hóa**
+### 🛠️ **6.1. CẬP NHẬT VÀ ĐỒNG BỘ HÓA**
 
 -   `git pull`: Kéo dữ liệu từ repository gốc để cập nhật với thay đổi mới nhất.
 -   `git fetch`: Lấy dữ liệu từ remote repository mà không tự động merge.
 
-### 🚧 **6.2. Quản lý nhánh**
+### 🚧 **6.2. QUẢN LÝ NHÁNH**
 
 -   `git branch`: Liệt kê tất cả các nhánh hiện tại.
 -   `git branch <tên-nhánh>`: Tạo nhánh mới.
@@ -162,7 +183,7 @@ repositoryRoot/
 -   `git merge <tên-nhánh>`: Gộp thay đổi từ nhánh khác vào nhánh hiện tại.
 -   `git rebase <tên-nhánh>`: Đưa các thay đổi từ một nhánh lên trên một nhánh khác.
 
-### 📝 **6.3. Commit và quản lý lịch sử**
+### 📝 **6.3. COMMIT VÀ QUẢN LÝ LỊCH SỬ**
 
 -   `git add <file>`: Thêm file vào staging area.
 -   `git commit -m "message"`: Lưu thay đổi với thông điệp commit.
@@ -170,25 +191,25 @@ repositoryRoot/
 -   `git log`: Xem lịch sử commit.
 -   `git diff`: Xem sự khác biệt giữa các phiên bản.
 
-### 🔄 **6.4. Xử lý xung đột**
+### 🔄 **6.4. XỬ LÝ XUNG ĐỘT**
 
 -   `git status`: Kiểm tra trạng thái của repository và file.
 -   `git mergetool`: Sử dụng công cụ để giải quyết xung đột merge.
 
-### 🗑️ **6.5. Quản lý file**
+### 🗑️ **6.5. QUẢN LÝ FILE**
 
 -   `git rm <file>`: Xóa file khỏi repository và staging area.
 -   `git reset <file>`: Xóa file khỏi staging area nhưng giữ nguyên thay đổi trong working directory.
 -   `git clean -f`: Xóa các file không được theo dõi.
 
-### 🔧 **6.6. Quản lý remote**
+### 🔧 **6.6. QUẢN LÝ REMOTE**
 
 -   `git remote -v`: Hiển thị danh sách các remote repository.
 -   `git remote add <tên> <url>`: Thêm remote repository mới.
 -   `git push <remote> <branch>`: Đẩy thay đổi lên remote repository.
 -   `git pull <remote> <branch>`: Kéo thay đổi từ remote repository.
 
-### ⚠️ **6.7. Khôi phục và sửa đổi**
+### ⚠️ **6.7. KHÔI PHỤC VÀ SỬA ĐỔI**
 
 -   `git revert <commit-hash>`: Tạo một commit mới để đảo ngược thay đổi từ commit cụ thể.
 -   `git reset --hard <commit-hash>`: Khôi phục trạng thái working directory và staging area về một commit cụ thể (dùng cẩn thận, dữ liệu sẽ bị mất).
@@ -197,7 +218,7 @@ repositoryRoot/
 
 ---
 
-# 🌐 Các tiện ích hỗ trợ viết DOC
+# 🌐 CÁC TIỆN ÍCH HỖ TRỢ VIẾT DOC
 
 ## 📎 Các icon trong ASCII: https://emojipedia.org/
 
@@ -207,4 +228,4 @@ repositoryRoot/
 
 ---
 
-# 🔗 Link Git tổng hợp: https://github.com/MaiTheHao/MyDocument.git
+# 🔗 LINK GIT TỔNG HỢP: https://github.com/MaiTheHao/MyDocument.git
