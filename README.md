@@ -1,187 +1,48 @@
-# JavaScript Document
+# 📚 Tài liệu Lập trình JavaScript
 
-📄 Đây là tài liệu về JavaScript được xây dựng bởi 3 đồng tác giả:
+# 🎯 Giới thiệu
 
--   Mai Thế Hào
--   Trần Duy Phúc
--   Hồ Nguyễn Đức Minh
+Tài liệu **"Lập trình JavaScript cơ bản tới nâng cao"** được biên soạn để hỗ trợ học tập và nâng cao kỹ năng lập trình JavaScript, bao gồm cả **các kiến thức nâng cao và ví dụ thực tế**.
 
----
+# 👨‍💻 Thông tin tác giả
 
-## 📚 Mục đích của tài liệu này:
+-   🎓 **Tác giả & Biên tập**:
+    -   [Mai Thế Hào - K20]
+    -   Trần Duy Phúc - K20
+    -   Hồ Nguyễn Đức Minh - K20
+    -   Nguyễn Mai Minh Quý - K20
+    -   Minh Hoàng - K20
+    -   Văn Bảo - K19
+-   🏫 **Trường**: [Đại học Công Nghiệp TP.HCM](https://iuh.edu.vn/)
+-   📚 **Khoa**: Công nghệ Thông tin
+-   🔧 **Ban phụ trách**: [Ban Công Nghệ](https://www.facebook.com/profile.php?id=61572321333029)
 
--   📌 Cô đọng và tập hợp kiến thức liên quan đến JavaScript.
--   📌 Tập hợp các ví dụ cụ thể thực tế.
--   📌 Các kiến thức nâng cao hơn.
+# 📋 Nội dung
 
----
+-   ✅ **Kiến thức lập trình JavaScript từ cơ bản đến nâng cao**
+-   ✅ **Các ví dụ minh họa và bài tập thực hành**
+-   ✅ **Tổng hợp kiến thức nâng cao, best practices**
 
-## 📑 Mục Lục
--   [Cơ bản](#basics)
--   [Ví dụ thực tế](#examples)
--   [Tài nguyên học tập](#resources)
+# 👥 Đối tượng áp dụng
 
----
+-   🎯 **Sinh viên ngành Công nghệ thông tin**
+-   🎯 **Lập trình viên mới bắt đầu** với ngôn ngữ JavaScript
+-   🎯 **Những ai muốn cải thiện** kỹ năng lập trình JavaScript
 
-## 1. Knowledge Foundations
+# ⚠️ Độ chính xác
 
-### Variables and Data Types
+Do nội dung được viết bởi cá nhân và nhóm tác giả, tài liệu có thể chưa đảm bảo độ chính xác 100% và vẫn còn nhiều thiếu sót cần bổ sung. **Rất mong nhận được đóng góp từ cộng đồng** để cải thiện nội dung tài liệu.
 
--   **Primitive and Reference Types**
+# 🤝 Dự án cộng đồng
 
-    -   🔹 **Primitive Types**
-    -   🔹 **Reference Types**
+Đây là **dự án cộng đồng** được thực hiện bởi **Ban Công Nghệ - Trường Đại học Công Nghiệp Tp.HCM**. Mọi người có thể tham gia đóng góp để nâng cao chất lượng tài liệu.
 
--   **Type Coercion**
-    -   🔸 **Implicit and Explicit Coercion**
-        -   🔹 **Implicit Coercion**
-        -   🔹 **Explicit Coercion**
+# 📜 Điều khoản sử dụng
 
----
+-   ❌ **Không được sao chép, chỉnh sửa hoặc sử dụng cho mục đích thương mại**
+-   ✅ **Chỉ sử dụng cho mục đích học tập và nghiên cứu**
+-   ⚠️ **Nghiêm cấm mọi hành vi vi phạm bản quyền**
 
-### Operators
+# 📞 Liên hệ góp ý
 
--   🔹 **Arithmetic Operators**
--   🔹 **Assignment Operators**
--   🔹 **Comparison Operators**
--   🔹 **Logical Operators**
--   🔹 **Bitwise Operators**
--   🔹 **String Operators**
--   🔹**Conditional (Ternary) Operator**
--   🔹 **Unary Operators**
-
----
-
-### Control Structures
-
--   🔹 **if-Else**
--   🔹 **switch**
--   🔸 **for**
-    -   🔹 **normalFor**
-    -   🔹 **forIn**
-    -   🔹 **forOf**
--   🔹 **while**
--   🔹 **do-while**
--   🔹 **break and continue**
-
----
-
-### Functions and Scope
-
--   🔸 **Functions**
-
-    -   🔹 **Function Declaration**
-    -   🔹 **Function Expression**
-    -   🔹 **Arrow Functions**
-    -   🔹 **Anonymous Functions**
-    -   🔹 **Higher-Order Functions**
-    -   🔹 **Callback Functions**
-    -   🔹 **Function Parameters**
-    -   🔹 **Rest and Spread Operators**
-
--   🔸 **Scope**
-    -   🔹 **Global Scope**
-    -   🔹 **Local Scope**
-    -   🔹 **Block Scope**
-    -   🔹 **Lexical Scope**
-    -   🔹 **Scope Chain**
-    -   🔹 **Closures**
-
----
-
-### Object, Array, and String
-
--   🔸 **Object**
-
-    -   🔹 **Creating Objects**
-    -   🔹 **Accessing Properties**
-    -   🔹 **Methods**
-    -   🔹 **Prototypes**
-    -   🔹 **Inheritance**
-
--   🔸 **Array**
-
-    -   🔹 **Creating Arrays**
-    -   🔹 **Accessing and Modifying Elements**
-    -   🔹 **Common Array Methods**
-    -   🔹 **Array Iteration**
-
--   🔸 **String**
-    -   🔹 **Creating Strings**
-    -   🔹 **String Methods**
-    -   🔹 **Template Literals**
-    -   🔹 **String Manipulation**
-
----
-
-## 2. DOM and Events
-
-### DOM Manipulation
-
--   🔹 Basic and advanced DOM methods
--   🔹 Performance optimization
-
-### Event Handling
-
--   🔸 Event types (mouse, keyboard, form, etc.)
--   🔸 Event delegation, bubbling, and capturing
--   🔸 Asynchronous event handling
-
-### Forms and Validation
-
--   🔹 Client-side validation
--   🔹 Form submission handling
-
-### Advanced Topics
-
--   🔸 Shadow DOM and related technologies
--   🔸 Virtual DOM and frameworks (e.g., React)
--   🔸 New DOM APIs (Web Components)
-
-### Performance and Optimization
-
--   🔹 Minimizing reflows and repaints
--   🔹 Event handling performance best practices
-
-### Cross-browser Compatibility
-
--   🔸 Ensuring compatibility across browsers
--   🔸 Common event and DOM issues in different browsers
-
----
-
-## 3. Asynchronous JavaScript
-
-### Callbacks
-
-### Asynchronous
-
-### Promises
-
-### Async/Await
-
----
-
-# Examples
-
-### 1. Ví dụ thực tế
-
--   **To-Do List App**
--   **Form Validation**
--   **Image Slider**
--   **Countdown Timer App**
--   **Weather App**
--   **Tic Tac Toe**
-
----
-
-# Resources
-
-### 1. Tài nguyên học tập
-
--   **MDN Web Docs**
--   **JavaScript.info**
--   **W3Schools**
--   ...
-
----
+**Facebook:** [Ban Công Nghệ - ĐH Công Nghiệp TP.HCM](https://www.facebook.com/profile.php?id=61572321333029)
