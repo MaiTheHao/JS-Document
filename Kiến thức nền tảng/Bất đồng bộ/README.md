@@ -22,7 +22,7 @@ Tài liệu này giúp bạn hiểu rõ về lập trình bất đồng bộ tro
 
 ---
 
-### 2.2. Promise (Lời hứa)
+### 2.2. Promise
 
 -   **Khái niệm**: Đối tượng đại diện cho kết quả của một tác vụ bất đồng bộ trong tương lai.
 -   **Ưu điểm**: Giúp mã dễ đọc hơn, tránh callback hell, quản lý lỗi tốt hơn với `.then()`, `.catch()`, `.finally()`.
