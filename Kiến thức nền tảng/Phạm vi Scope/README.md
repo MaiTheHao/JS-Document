@@ -7,10 +7,10 @@ Scope (phạm vi) trong JavaScript xác định tính khả dụng của các bi
 Biến được khai báo trong global scope có thể được truy cập từ bất kỳ đâu trong mã nguồn.
 
 ```javascript
-var globalVar = "I am a global variable";
+var globalVar = 'I am a global variable';
 
 function globalScopeExample() {
-    console.log(globalVar); // I am a global variable
+	console.log(globalVar); // I am a global variable
 }
 
 globalScopeExample();
@@ -22,8 +22,8 @@ Biến được khai báo trong một hàm chỉ có thể được truy cập t
 
 ```javascript
 function functionScopeExample() {
-    var functionVar = "I am a function variable";
-    console.log(functionVar); // I am a function variable
+	var functionVar = 'I am a function variable';
+	console.log(functionVar); // I am a function variable
 }
 
 functionScopeExample();
@@ -36,8 +36,8 @@ Biến được khai báo bằng `let` hoặc `const` trong một khối mã (bl
 
 ```javascript
 if (true) {
-    let blockVar = "I am a block variable";
-    console.log(blockVar); // I am a block variable
+	let blockVar = 'I am a block variable';
+	console.log(blockVar); // I am a block variable
 }
 
 console.log(blockVar); // ReferenceError: blockVar is not defined
@@ -49,13 +49,13 @@ JavaScript sử dụng lexical scoping, nghĩa là phạm vi của một biến 
 
 ```javascript
 function outerFunction() {
-    var outerVar = "I am an outer variable";
+	var outerVar = 'I am an outer variable';
 
-    function innerFunction() {
-        console.log(outerVar); // I am an outer variable
-    }
+	function innerFunction() {
+		console.log(outerVar); // I am an outer variable
+	}
 
-    innerFunction();
+	innerFunction();
 }
 
 outerFunction();
@@ -66,19 +66,19 @@ outerFunction();
 Khi một biến được tham chiếu, JavaScript sẽ tìm kiếm biến đó trong phạm vi hiện tại, sau đó là phạm vi bao quanh nó, và tiếp tục như vậy cho đến khi tìm thấy biến hoặc đạt đến global scope.
 
 ```javascript
-var globalVar = "I am a global variable";
+var globalVar = 'I am a global variable';
 
 function outerFunction() {
-    var outerVar = "I am an outer variable";
+	var outerVar = 'I am an outer variable';
 
-    function innerFunction() {
-        var innerVar = "I am an inner variable";
-        console.log(innerVar); // I am an inner variable
-        console.log(outerVar); // I am an outer variable
-        console.log(globalVar); // I am a global variable
-    }
+	function innerFunction() {
+		var innerVar = 'I am an inner variable';
+		console.log(innerVar); // I am an inner variable
+		console.log(outerVar); // I am an outer variable
+		console.log(globalVar); // I am a global variable
+	}
 
-    innerFunction();
+	innerFunction();
 }
 
 outerFunction();
@@ -90,11 +90,11 @@ JavaScript hoists (nâng lên) các khai báo biến và hàm lên đầu phạm
 
 ```javascript
 console.log(hoistedVar); // undefined
-var hoistedVar = "I am hoisted";
+var hoistedVar = 'I am hoisted';
 
 hoistedFunction(); // I am a hoisted function
 function hoistedFunction() {
-    console.log("I am a hoisted function");
+	console.log('I am a hoisted function');
 }
 ```
 
@@ -104,11 +104,11 @@ Closure là một hàm có quyền truy cập vào phạm vi của hàm cha ngay
 
 ```javascript
 function closureExample() {
-    var closureVar = "I am a closure variable";
+	var closureVar = 'I am a closure variable';
 
-    return function() {
-        console.log(closureVar); // I am a closure variable
-    };
+	return function () {
+		console.log(closureVar); // I am a closure variable
+	};
 }
 
 var myClosure = closureExample();

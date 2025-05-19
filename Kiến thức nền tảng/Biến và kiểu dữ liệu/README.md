@@ -1,118 +1,117 @@
-## Variable trong JavaScript
+## Biến (Variable) trong JavaScript
 
-#### 1. Khái niệm về Biến (variable):
+### 1. Biến là gì?
 
-Biến trong JavaScript là một đại diện trong bộ nhớ máy tính để lưu trữ giá trị. Các giá trị này có thể được thay đổi trong suốt quá trình thực thi của chương trình.
+Biến là một "chiếc hộp" trong bộ nhớ máy tính dùng để lưu trữ giá trị. Giá trị này có thể thay đổi trong quá trình chạy chương trình.
 
-#### 2. Các Từ Khóa Khai Báo Biến:
+### 2. Các cách khai báo biến
 
-JavaScript hỗ trợ ba từ khóa chính để khai báo biến:
+JavaScript hỗ trợ ba từ khóa để khai báo biến:
 
--   `var`:
+-   **`var`**:
 
-    -   Được sử dụng từ lâu, nhưng có một số vấn đề về phạm vi _(scope)_. Biến khai báo bằng `var` có phạm vi toàn cục _(global)_ hoặc phạm vi trong một hàm _(function scope)_.
+    -   Được sử dụng từ lâu, nhưng có phạm vi (scope) rộng hơn mong muốn (toàn cục hoặc trong hàm).
+    -   Dễ gây lỗi do phạm vi không rõ ràng.
 
--   `let`:
+-   **`let`**:
 
-    -   `let` khai báo biến với phạm vi khối (block-level scope), có thể thay đổi giá trị trong suốt quá trình thực thi.
+    -   Khai báo biến với phạm vi khối (block-level scope).
+    -   Có thể thay đổi giá trị sau khi khai báo.
 
--   `const`:
+-   **`const`**:
+    -   Khai báo một hằng số (giá trị không thay đổi sau khi gán).
+    -   Cũng có phạm vi khối như `let`.
 
-    -   Được sử dụng để khai báo hằng số. Một khi đã gán giá trị cho biến `const`, bạn không thể thay đổi giá trị của nó.
+> **Khuyến nghị:** Nên dùng `let` và `const` thay cho `var` để tránh lỗi về phạm vi.
 
-> **Lưu Ý:** Sử dụng `let` và `const` thay thế cho `var` để tránh các vấn đề liên quan đến phạm vi.
+> **Tham khảo thêm:** [Scope trong JavaScript](../scope/README.md)
 
-> **Tip:** Đọc thêm về [Scope trong JavaScript](../scope/README.md).
+#### Ví dụ:
 
-#### 3. Ví Dụ:
-
-```Javascript
-let x = 5;      // x là biến có thể thay đổi giá trị
-const y = 10;    // y là hằng số, không thể thay đổi giá trị
-var z = 15;      // z là biến có thể thay đổi giá trị, nhưng phạm vi toàn cục hoặc trong hàm
+```javascript
+let x = 5; // x có thể thay đổi giá trị
+const y = 10; // y là hằng số, không thể thay đổi giá trị
+var z = 15; // z có thể thay đổi giá trị, nhưng phạm vi rộng (toàn cục hoặc trong hàm)
 ```
 
 ---
 
-## Datatype (Kiểu Dữ Liệu) trong JavaScript
+## Kiểu dữ liệu (Datatype) trong JavaScript
 
-#### Khái Niệm về Kiểu Dữ Liệu:
+### 1. Kiểu dữ liệu là gì?
 
-Trong Javascript, kiểu dữ liệu xác định loại của giá trị mà một biến có thể lưu trữ.
-JavaScript có hai loại kiểu dữ liệu chính: **Primitive** (_Nguyên thủy_) và **Non-Primitive** (_Tham chiếu_).
+Kiểu dữ liệu xác định loại giá trị mà biến có thể lưu trữ. JavaScript có hai nhóm kiểu dữ liệu chính:
 
-#### 1. Primitive Data Type (Kiểu Dữ Liệu Nguyên Thủy):
+-   **Kiểu nguyên thủy (Primitive)**
+-   **Kiểu tham chiếu (Non-Primitive/Reference)**
 
-Các kiểu dữ liệu này bao gồm các giá trị đơn giản và không thể thay đổi.
+### 2. Kiểu dữ liệu nguyên thủy (Primitive)
 
--   `Number`: Dùng để biểu diễn các giá trị số (nguyên và thực).
+Đây là các giá trị đơn giản, không thể thay đổi nội dung bên trong (immutable):
 
-    -   _Ví dụ: `let num = 42;`_
+-   **Number**: Số (nguyên, thực)
+    -   _Ví dụ:_ `let num = 42;`
+-   **String**: Chuỗi ký tự
+    -   _Ví dụ:_ `let name = "DuckMin";`
+-   **Boolean**: Đúng hoặc sai (`true` hoặc `false`)
+    -   _Ví dụ:_ `let isActive = false;`
+-   **Undefined**: Biến được khai báo nhưng chưa gán giá trị
+    -   _Ví dụ:_ `let x; // x là undefined`
+-   **Null**: Biến không có giá trị (cố ý gán rỗng)
+    -   _Ví dụ:_ `let emptyValue = null;`
+-   **Symbol** (ES6+): Tạo giá trị duy nhất, thường dùng làm key cho object
+    -   _Ví dụ:_ `let uniqueSymbol = Symbol("desc");`
+-   **BigInt** (ES11+): Lưu trữ số nguyên rất lớn
+    -   _Ví dụ:_ `let big = BigInt(12345678901234567890);`
 
--   `String`: Dùng để lưu trữ chuỗi văn bản.
+#### Sự khác biệt giữa `undefined` và `null`
 
-    -   _Ví dụ: `let name = "DuckMin";`_
+-   **`undefined`** là giá trị mặc định của một biến khi bạn khai báo nhưng chưa gán giá trị cho nó. Nó cũng xuất hiện khi một hàm không trả về gì.
+    -   _Ví dụ:_
+    ```javascript
+    let a;
+    console.log(a); // undefined
+    ```
+-   **`null`** là một giá trị đặc biệt mà bạn chủ động gán cho biến để thể hiện rằng biến đó "không có giá trị" hoặc "rỗng".
+    -   _Ví dụ:_
+    ```javascript
+    let b = null;
+    console.log(b); // null
+    ```
 
--   `Boolean`: Dùng để lưu trữ hai giá trị: true hoặc false.
+> **Lưu ý:** `undefined` và `null` đều mang ý nghĩa "không có giá trị", nhưng `undefined` là do JavaScript tự gán, còn `null` là do lập trình viên chủ động gán.
 
-    -   _Ví dụ: `let isActive = false;`_
+### 3. Kiểu dữ liệu tham chiếu (Non-Primitive/Reference)
 
--   `Undefined`: Khi một biến được khai báo nhưng chưa được gán giá trị, nó có giá trị mặc định là undefined.
+Đây là các kiểu phức tạp, có thể chứa nhiều giá trị và thay đổi nội dung bên trong:
 
-    -   _Ví dụ: `let x; // x là undefined`_
-
--   `Null`: Một giá trị đặc biệt để chỉ rằng biến không có giá trị.
-
-    -   _Ví dụ: `let emptyValue = null;`_
-
--   `Symbol` _(ES6+)_: Dùng để tạo các giá trị duy nhất và không thay đổi.
-    -   _Ví dụ: `let uniqueSymbol = Symbol("description");`_
--   `BigInt` _(ES11+)_: Dùng để đại diện cho các số nguyên lớn hơn giới hạn của kiểu Number.
-    -   _Ví dụ: `let largeNumber = BigInt(1234567890123456789012345678901234567890);`_
-
-#### 2. Non-Primitive Data Type (Kiểu Dữ Liệu Tham Chiếu):
-
-Đây là những kiểu dữ liệu phức tạp, có thể lưu trữ nhiều giá trị và có thể thay đổi.
-
--   `Object`: Dùng để lưu trữ các cặp khóa-giá trị. Đối tượng có thể chứa nhiều giá trị khác nhau.
-
-_Ví dụ:_
-
-```javascript
-let person = {
-	name: 'DuckMin',
-	age: 18,
-	isStudent: true,
-};
-```
-
--   `Array`: Là một loại đối tượng đặc biệt trong JavaScript, dùng để lưu trữ danh sách các giá trị.
-
-_Ví dụ:_
-
-```javascript
-let fruits = ['apple', 'banana', 'cherry'];
-```
-
--   `Function`: Trong JavaScript, hàm cũng là một đối tượng và có thể được sử dụng như một kiểu dữ liệu.
-
-_Ví dụ:_
-
-```javascript
-function greet() {
-	console.log('Hello, world!');
-}
-```
+-   **Object**: Lưu trữ cặp khóa-giá trị
+    -   _Ví dụ:_
+    ```javascript
+    let person = {
+    	name: 'DuckMin',
+    	age: 18,
+    	isStudent: true,
+    };
+    ```
+-   **Array**: Danh sách các giá trị (một dạng đặc biệt của object)
+    -   _Ví dụ:_
+    ```javascript
+    let fruits = ['apple', 'banana', 'cherry'];
+    ```
+-   **Function**: Hàm cũng là một kiểu dữ liệu, có thể gán cho biến
+    -   _Ví dụ:_
+    ```javascript
+    function greet() {
+    	console.log('Hello, world!');
+    }
+    ```
 
 ---
 
-##### Tóm lại:
+### Tóm tắt
 
-1. Biến _(Variable)_ trong JavaScript dùng để lưu trữ giá trị. Bạn có thể khai báo biến bằng `var`, `let`, hoặc `const`.
-
-    - `let` và `const` là lựa chọn hiện đại, tránh được các vấn đề liên quan đến phạm vi của `var`.
-
-2. Kiểu Dữ Liệu _(Datatype)_ xác định loại của giá trị mà một biến có thể lưu trữ. JavaScript có hai loại kiểu dữ liệu chính:
-
-    - Kiểu dữ liệu nguyên thủy _(Primitive)_: `Number`, `String`, `Boolean`, `Undefined`, `Null`, `Symbol`, `BigInt`.
-    - Kiểu dữ liệu tham chiếu _(Non-Primitive)_: `Object`, `Array`, `Function`.
+1. **Biến** là nơi lưu trữ giá trị. Khai báo bằng `var`, `let`, hoặc `const`. Nên ưu tiên `let` và `const`.
+2. **Kiểu dữ liệu** xác định loại giá trị biến có thể lưu trữ:
+    - **Nguyên thủy:** `Number`, `String`, `Boolean`, `Undefined`, `Null`, `Symbol`, `BigInt`
+    - **Tham chiếu:** `Object`, `Array`, `Function`
