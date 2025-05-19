@@ -24,7 +24,7 @@ JavaScript hỗ trợ ba từ khóa để khai báo biến:
 
 > **Khuyến nghị:** Nên dùng `let` và `const` thay cho `var` để tránh lỗi về phạm vi.
 
-> **Tham khảo thêm:** [Scope trong JavaScript](../scope/README.md)
+> **Tham khảo thêm:** [Scope trong JavaScript](../Phạm%20vi%20Scope/README.md)
 
 #### Ví dụ:
 
