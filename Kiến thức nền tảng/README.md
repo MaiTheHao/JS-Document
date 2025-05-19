@@ -4,27 +4,21 @@ Tài liệu này tổng hợp các kiến thức nền tảng quan trọng nhấ
 
 ---
 
-## 📗 [1. Biến và Kiểu Dữ Liệu (Variables and Data Types)](variables_and_data_types/README.md)
+## 📗 [1. Biến và Kiểu Dữ Liệu (Variables and Data Types)](Biến%20và%20kiểu%20dữ%20liệu/README.md)
 
-## 📘 [2. Toán Tử (Operators)](operators/README.md)
+## 📘 [2. Các Toán Tử (Operators)](Các%20toán%20tử/README.md)
 
-## 📙 [3. Cấu Trúc Điều Khiển (Control Structures)](control_structures/README.md)
+## 📙 [3. Cấu Trúc Điều Khiển (Control Structures)](Cấu%20trúc%20điều%20khiển/README.md)
 
-## 📒 [4. Hàm (Function)](function/README.md)
+## 📒 [4. Hàm (Function)](Hàm/README.md)
 
-## 📕 [5. Đối Tượng (Object)](object/README.md)
+## 📕 [5. Đối Tượng (Object)](Object/README.md)
 
-## 📓 [6. Phạm Vi Biến (Scope)](scope/README.md)
+## 📓 [6. Phạm Vi Scope (Scope)](Phạm%20vi%20Scope/README.md)
 
 ---
 
-## 🚦 [7. Bất Đồng Bộ (Asynchronous JavaScript)](asynchronous/README.md)
-
-### [7.1. Callback](asynchronous/callback/README.md)
-
-### [7.2. Promise](asynchronous/promises/README.md)
-
-### [7.3. Async/Await](asynchronous/async_await/README.md)
+## 🚦 [7. Bất Đồng Bộ (Asynchronous JavaScript)](Bất%20đồng%20bộ/README.md)
 
 ---
 
