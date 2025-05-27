@@ -1,586 +1,500 @@
-# Tổng Quan về Event trong HTML và JavaScript
+# EVENTS TRONG JAVASCRIPT
 
-## Mục lục
+## MỤC LỤC
 
-1. [Khái niệm cơ bản về Event](#1-khái-niệm-cơ-bản-về-event)
-2. [Phân loại các sự kiện](#2-phân-loại-các-sự-kiện)
-3. [Cách thức xử lý sự kiện](#3-cách-thức-xử-lý-sự-kiện)
-4. [Cơ chế lan truyền sự kiện](#4-cơ-chế-lan-truyền-sự-kiện)
-5. [Quản lý và tối ưu hóa sự kiện](#5-quản-lý-và-tối-ưu-hóa-sự-kiện)
+1. [Khái niệm cơ bản](#1-khái-niệm-cơ-bản)
+2. [Tại sao cần học Events](#2-tại-sao-cần-học-events)
+3. [Các loại sự kiện cơ bản](#3-các-loại-sự-kiện-cơ-bản)
+4. [Cách xử lý sự kiện](#4-cách-xử-lý-sự-kiện)
+5. [Cơ chế lan truyền sự kiện](#5-cơ-chế-lan-truyền-sự-kiện)
 6. [Kỹ thuật nâng cao](#6-kỹ-thuật-nâng-cao)
+7. [Bài tập thực hành](#7-bài-tập-thực-hành)
+8. [Tham khảo đầy đủ](#8-tham-khảo-đầy-đủ)
+9. [Tóm tắt](#9-tóm-tắt)
 
 ---
 
-## 1. Khái niệm cơ bản về Event
+## 1. Khái niệm cơ bản
 
-**Event (Sự kiện)** là các hành động hoặc tương tác mà người dùng thực hiện trên trang web, chẳng hạn như nhấp chuột, gõ phím, di chuyển chuột, hoặc các hành động tự động của trình duyệt như tải trang. JavaScript có thể lắng nghe và phản hồi lại các sự kiện này để tạo ra các tương tác động.
+**Event (Sự kiện)** là những hành động mà người dùng thực hiện trên trang web hoặc những thay đổi xảy ra trong trình duyệt.
 
-### Tại sao Event quan trọng?
+**Ví dụ dễ hiểu:** Giống như khi em bấm chuông nhà, có người sẽ ra mở cửa. Trong lập trình web:
 
--   Tạo tương tác người dùng
--   Xử lý dữ liệu form
--   Tạo hiệu ứng giao diện
--   Phản hồi hành vi người dùng
+-   Em click chuột = bấm chuông
+-   JavaScript xử lý = người ra mở cửa
+-   Kết quả hiển thị = cửa được mở
 
----
+```javascript
+// Ví dụ đơn giản nhất về event
+const nutBam = document.getElementById('nutBam');
 
-## 2. Phân loại các sự kiện
-
-### 2.1 Sự kiện chuột (Mouse Events)
-
-| Sự kiện       | Khi nào xảy ra                     |
-| ------------- | ---------------------------------- |
-| `click`       | Người dùng nhấp chuột trái         |
-| `dblclick`    | Người dùng nhấp đúp chuột          |
-| `mousedown`   | Nhấn nút chuột xuống (chưa thả)    |
-| `mouseup`     | Thả nút chuột ra                   |
-| `mouseover`   | Di chuột vào vùng phần tử          |
-| `mouseout`    | Di chuột ra khỏi vùng phần tử      |
-| `mousemove`   | Di chuyển chuột trong vùng phần tử |
-| `contextmenu` | Nhấp chuột phải (menu ngữ cảnh)    |
-
-### 2.2 Sự kiện bàn phím (Keyboard Events)
-
-| Sự kiện    | Khi nào xảy ra               |
-| ---------- | ---------------------------- |
-| `keydown`  | Nhấn phím xuống              |
-| `keyup`    | Thả phím ra                  |
-| `keypress` | Nhấn phím ký tự (deprecated) |
-
-### 2.3 Sự kiện form (Form Events)
-
-| Sự kiện  | Khi nào xảy ra                      |
-| -------- | ----------------------------------- |
-| `submit` | Gửi form                            |
-| `reset`  | Reset form về trạng thái ban đầu    |
-| `change` | Giá trị input thay đổi và mất focus |
-| `input`  | Giá trị input thay đổi ngay lập tức |
-| `focus`  | Phần tử nhận focus                  |
-| `blur`   | Phần tử mất focus                   |
-| `select` | Chọn text trong input               |
-
-### 2.4 Sự kiện tải trang (Page Events)
-
-| Sự kiện            | Khi nào xảy ra                                   |
-| ------------------ | ------------------------------------------------ |
-| `load`             | Trang web hoặc phần tử tải hoàn tất              |
-| `DOMContentLoaded` | DOM được xây dựng xong (không chờ CSS, hình ảnh) |
-| `beforeunload`     | Trước khi rời khỏi trang                         |
-| `unload`           | Khi rời khỏi trang                               |
-| `resize`           | Thay đổi kích thước cửa sổ                       |
-| `scroll`           | Cuộn trang                                       |
-
----
-
-## 3. Cách thức xử lý sự kiện
-
-### 3.1 Inline Event Handler (Không khuyến nghị)
-
-```html
-<button onclick="alert('Xin chào!')">Nhấp vào đây</button>
+nutBam.addEventListener('click', function () {
+	alert('Em vừa bấm nút!');
+});
 ```
 
-**Nhược điểm:**
+---
 
--   Trộn lẫn HTML và JavaScript
--   Khó bảo trì khi dự án lớn
--   Không thể gán nhiều handler cho cùng một sự kiện
+## 2. Tại sao cần học Events
 
-### 3.2 DOM Property Event Handler
+### 🎯 Tạo trang web tương tác
+
+Không có Events, trang web chỉ như một tờ báo - chỉ đọc được, không làm gì khác.
+
+**Ví dụ thực tế:**
+
+-   Khi em bấm nút "Nộp bài" → Hiển thị điểm số
+-   Khi em gõ vào ô tìm kiếm → Hiện gợi ý môn học
+-   Khi em scroll xuống → Tự động load thêm nội dung
+
+### 💡 So sánh cách làm cũ vs mới
+
+**Cách cũ (không có Events):**
 
 ```html
-<button id="myButton">Nhấp vào đây</button>
+<!-- Phải reload cả trang để làm gì đó -->
+<a href="tinh-diem.php">Tính điểm trung bình</a>
+```
+
+**Cách mới (có Events):**
+
+```javascript
+// Tính luôn trên trang, không cần reload
+nutTinhDiem.addEventListener('click', function () {
+	const diemToan = 8,
+		diemVan = 9,
+		diemAnh = 7;
+	const diemTB = (diemToan + diemVan + diemAnh) / 3;
+	hienThiKetQua(diemTB);
+});
+```
+
+---
+
+## 3. Các loại sự kiện cơ bản
+
+### 📱 Sự kiện chuột
+
+| Sự kiện     | Khi nào xảy ra | Ví dụ thực tế             |
+| ----------- | -------------- | ------------------------- |
+| `click`     | Bấm chuột trái | Bấm nút "Nộp bài"         |
+| `dblclick`  | Bấm đúp chuột  | Mở file trên máy tính     |
+| `mouseover` | Đưa chuột vào  | Hiện tooltip khi rê chuột |
+| `mouseout`  | Đưa chuột ra   | Ẩn tooltip đi             |
+
+```javascript
+// Ví dụ: Hiệu ứng khi rê chuột vào tên môn học
+const monHoc = document.querySelectorAll('.mon-hoc');
+
+monHoc.forEach((mon) => {
+	// Khi đưa chuột vào
+	mon.addEventListener('mouseover', function () {
+		this.style.backgroundColor = '#e3f2fd';
+		this.style.cursor = 'pointer';
+	});
+
+	// Khi đưa chuột ra
+	mon.addEventListener('mouseout', function () {
+		this.style.backgroundColor = '';
+	});
+});
+```
+
+### ⌨️ Sự kiện bàn phím
+
+| Sự kiện   | Khi nào xảy ra  | Ví dụ thực tế             |
+| --------- | --------------- | ------------------------- |
+| `keydown` | Nhấn phím xuống | Gõ tên trong form đăng ký |
+| `keyup`   | Thả phím ra     | Tìm kiếm tự động khi gõ   |
+
+```javascript
+// Ví dụ: Tìm kiếm học sinh khi gõ tên
+const oTimKiem = document.getElementById('timKiemHocSinh');
+const danhSachHocSinh = ['An', 'Bình', 'Chi', 'Dung', 'Em'];
+
+oTimKiem.addEventListener('keyup', function () {
+	const tuKhoa = this.value.toLowerCase();
+	const ketQua = danhSachHocSinh.filter((ten) => ten.toLowerCase().includes(tuKhoa));
+	hienThiKetQuaTimKiem(ketQua);
+});
+```
+
+### 📝 Sự kiện form
+
+| Sự kiện  | Khi nào xảy ra        | Ví dụ thực tế                 |
+| -------- | --------------------- | ----------------------------- |
+| `submit` | Gửi form              | Nộp bài kiểm tra              |
+| `change` | Thay đổi giá trị      | Chọn lớp khác trong dropdown  |
+| `focus`  | Click vào ô input     | Bắt đầu nhập điểm             |
+| `blur`   | Click ra khỏi ô input | Kiểm tra điểm có hợp lệ không |
+
+```javascript
+// Ví dụ: Kiểm tra điểm khi nhập xong
+const oDiem = document.getElementById('diemKiemTra');
+
+oDiem.addEventListener('blur', function () {
+	const diem = parseFloat(this.value);
+
+	if (diem < 0 || diem > 10) {
+		alert('Điểm phải từ 0 đến 10!');
+		this.focus(); // Quay lại ô nhập
+	} else if (diem >= 8) {
+		this.style.color = 'green';
+		console.log('Điểm khá giỏi!');
+	}
+});
+```
+
+---
+
+## 4. Cách xử lý sự kiện
+
+### 4.1 Cách cơ bản với addEventListener()
+
+**Cú pháp:**
+
+```javascript
+phanTu.addEventListener('tenSuKien', hamXuLy);
+```
+
+**Ví dụ thực tế:**
+
+```html
+<button id="nutTinhDiem">Tính điểm trung bình</button>
+<div id="ketQua"></div>
+
 <script>
-  const button = document.getElementById('myButton');
-  button.onclick = function () {
-    alert('Đã nhấp button!');
-  };
+	const nutTinhDiem = document.getElementById('nutTinhDiem');
+	const ketQua = document.getElementById('ketQua');
+
+	// Hàm tính điểm trung bình lớp
+	function tinhDiemTrungBinhLop() {
+		const diemLop = [8.5, 7.2, 9.1, 6.8, 8.0, 7.5, 9.3, 8.8];
+		const tongDiem = diemLop.reduce((tong, diem) => tong + diem, 0);
+		const diemTB = (tongDiem / diemLop.length).toFixed(1);
+
+		ketQua.innerHTML = `
+    <h3>📊 Kết quả thống kê lớp:</h3>
+    <p>Số học sinh: ${diemLop.length}</p>
+    <p>Điểm trung bình: ${diemTB}</p>
+    <p>Xếp loại: ${diemTB >= 8 ? 'Giỏi' : diemTB >= 6.5 ? 'Khá' : 'Trung bình'}</p>
+  `;
+	}
+
+	// Gán sự kiện cho nút
+	nutTinhDiem.addEventListener('click', tinhDiemTrungBinhLop);
 </script>
 ```
 
-**Ưu điểm:**
+### 4.2 Event Object - Đối tượng sự kiện
 
--   Tách biệt HTML và JavaScript
--   Dễ đọc và hiểu
+Mỗi khi có sự kiện xảy ra, JavaScript sẽ tạo ra một đối tượng chứa thông tin về sự kiện đó.
 
-**Nhược điểm:**
+```javascript
+// Ví dụ: Hiển thị thông tin chi tiết khi click
+const nutThongTin = document.getElementById('nutThongTin');
 
--   Chỉ có thể gán một handler cho mỗi sự kiện
+nutThongTin.addEventListener('click', function (event) {
+	console.log('Loại sự kiện:', event.type); // "click"
+	console.log('Phần tử được click:', event.target); // <button>
+	console.log('Tọa độ click:', event.clientX, event.clientY);
 
-### 3.3 addEventListener() (Khuyến nghị sử dụng)
-
-```html
-<button id="myButton">Nhấp vào đây</button>
-<script>
-  const button = document.getElementById('myButton');
-
-  button.addEventListener('click', function () {
-    console.log('Handler thứ nhất');
-  });
-
-  button.addEventListener('click', function () {
-    console.log('Handler thứ hai');
-  });
-</script>
+	// Ngăn hành động mặc định (nếu có)
+	event.preventDefault();
+});
 ```
-
-**Ưu điểm:**
-
--   Có thể gán nhiều handler cho cùng một sự kiện
--   Hỗ trợ tùy chọn capture, once, passive
--   Có thể hủy bỏ bằng removeEventListener()
--   Cách tiếp cận hiện đại và linh hoạt
 
 ---
 
-## 4. Cơ chế lan truyền sự kiện
+## 5. Cơ chế lan truyền sự kiện
 
-### 4.1 Event Bubbling (Mặc định)
+### 📸 Minh họa trực quan
+
+![Event Bubbling và Capturing](../imgs/event_captured_bubbled.png)
+
+### 5.1 Event Bubbling (Nổi bọt - Mặc định)
 
 Sự kiện lan truyền từ phần tử con lên phần tử cha.
 
+**Ví dụ dễ hiểu:** Giống như khi em la to trong lớp, tiếng la sẽ lan ra hành lang, rồi ra sân trường.
+
 ```html
-<div id="outer">
-  <div id="middle">
-    <button id="inner">Nhấp vào đây</button>
-  </div>
+<div id="lop" class="lop">
+	<div id="ban" class="ban">
+		<button id="hocSinh" class="hoc-sinh">Em An</button>
+	</div>
 </div>
 
 <script>
-  document.getElementById('outer').addEventListener('click', () => {
-    console.log('Outer div được nhấp');
-  });
+	// Lắng nghe ở cấp lớp
+	document.getElementById('lop').addEventListener('click', function () {
+		console.log('🏫 Cô giáo nghe thấy có tiếng động trong lớp');
+	});
 
-  document.getElementById('middle').addEventListener('click', () => {
-    console.log('Middle div được nhấp');
-  });
+	// Lắng nghe ở cấp bàn
+	document.getElementById('ban').addEventListener('click', function () {
+		console.log('🪑 Có ai đó động vào bàn này');
+	});
 
-  document.getElementById('inner').addEventListener('click', () => {
-    console.log('Button được nhấp');
-  });
+	// Lắng nghe ở cấp học sinh
+	document.getElementById('hocSinh').addEventListener('click', function () {
+		console.log('👤 Em An vừa được click');
+	});
 </script>
 ```
 
-Kết quả khi nhấp button:
+**Khi click vào "Em An", kết quả sẽ là:**
 
-1. "Button được nhấp"
-2. "Middle div được nhấp"
-3. "Outer div được nhấp"
+1. "👤 Em An vừa được click"
+2. "🪑 Có ai đó động vào bàn này"
+3. "🏫 Cô giáo nghe thấy có tiếng động trong lớp"
 
-### 4.2 Event Capturing
+### 5.2 Event Capturing (Bắt giữ)
 
 Sự kiện lan truyền từ phần tử cha xuống phần tử con.
 
 ```javascript
-// Sử dụng tham số thứ 3 là true hoặc { capture: true }
-element.addEventListener('click', handler, true);
-// hoặc
-element.addEventListener('click', handler, { capture: true });
+// Để dùng capturing, thêm tham số thứ 3 là true
+document.getElementById('lop').addEventListener(
+	'click',
+	function () {
+		console.log('🏫 Cô giáo để ý trước khi xem ai gây ra');
+	},
+	true
+); // <- true để dùng capturing
 ```
 
-### 4.3 Ngăn chặn lan truyền
+### 5.3 Ngăn chặn lan truyền
 
 ```javascript
-button.addEventListener('click', function (event) {
-  event.stopPropagation(); // Dừng lan truyền sự kiện
-  console.log('Chỉ xử lý ở button');
+document.getElementById('hocSinh').addEventListener('click', function (event) {
+	console.log('👤 Em An được click');
+
+	// Ngăn sự kiện lan truyền lên các phần tử cha
+	event.stopPropagation();
+
+	// Bây giờ chỉ có thông báo này hiện ra, không có thông báo nào khác
 });
-```
-
-### 4.4 Ngăn chặn hành vi mặc định
-
-```javascript
-link.addEventListener('click', function (event) {
-  event.preventDefault(); // Ngăn hành vi mặc định (ví dụ: không theo link)
-  console.log('Link không được theo');
-});
-```
-
----
-
-## 5. Quản lý và tối ưu hóa sự kiện
-
-### 5.1 Event Delegation (Ủy quyền sự kiện)
-
-Thay vì gán sự kiện cho từng phần tử con, ta gán cho phần tử cha và kiểm tra target.
-
-```html
-<ul id="todoList">
-  <li><button class="delete">Xóa</button> Công việc 1</li>
-  <li><button class="delete">Xóa</button> Công việc 2</li>
-  <li><button class="delete">Xóa</button> Công việc 3</li>
-</ul>
-
-<script>
-  document.getElementById('todoList').addEventListener('click', function (event) {
-    if (event.target.classList.contains('delete')) {
-      event.target.parentElement.remove();
-    }
-  });
-</script>
-```
-
-**Lợi ích:**
-
--   Giảm số lượng event listener
--   Tăng hiệu suất
--   Tự động xử lý cho các phần tử được thêm sau
-
-### 5.2 Hủy bỏ Event Listener
-
-```javascript
-function handleClick() {
-  console.log('Đã nhấp');
-}
-
-// Gán sự kiện
-button.addEventListener('click', handleClick);
-
-// Hủy sự kiện
-button.removeEventListener('click', handleClick);
-```
-
-### 5.3 Sự kiện chỉ chạy một lần
-
-```javascript
-button.addEventListener(
-  'click',
-  function () {
-    console.log('Chỉ chạy một lần');
-  },
-  { once: true }
-);
 ```
 
 ---
 
 ## 6. Kỹ thuật nâng cao
 
-### 6.1 Debouncing và Throttling
+### 🎯 Event Delegation (Ủy quyền sự kiện)
 
-**Debouncing:** Trì hoãn thực thi cho đến khi không có sự kiện mới trong khoảng thời gian nhất định.
-
-```javascript
-function debounce(func, delay) {
-  let timeoutId;
-  return function (...args) {
-    clearTimeout(timeoutId);
-    timeoutId = setTimeout(() => func.apply(this, args), delay);
-  };
-}
-
-const searchInput = document.getElementById('search');
-const debouncedSearch = debounce(function () {
-  console.log('Tìm kiếm:', this.value);
-}, 300);
-
-searchInput.addEventListener('input', debouncedSearch);
-```
-
-**Throttling:** Giới hạn số lần thực thi trong một khoảng thời gian.
-
-```javascript
-function throttle(func, delay) {
-  let lastCall = 0;
-  return function (...args) {
-    const now = Date.now();
-    if (now - lastCall >= delay) {
-      lastCall = now;
-      func.apply(this, args);
-    }
-  };
-}
-
-const throttledScroll = throttle(function () {
-  console.log('Đang cuộn');
-}, 100);
-
-window.addEventListener('scroll', throttledScroll);
-```
-
-### 6.2 Custom Events
-
-```javascript
-// Tạo sự kiện tùy chỉnh
-const customEvent = new CustomEvent('myCustomEvent', {
-  detail: { message: 'Đây là dữ liệu tùy chỉnh' },
-});
-
-// Lắng nghe sự kiện tùy chỉnh
-document.addEventListener('myCustomEvent', function (event) {
-  console.log(event.detail.message);
-});
-
-// Kích hoạt sự kiện
-document.dispatchEvent(customEvent);
-```
-
-### 6.3 Async Event Handlers
-
-```javascript
-button.addEventListener('click', async function () {
-  try {
-    const response = await fetch('/api/data');
-    const data = await response.json();
-    console.log(data);
-  } catch (error) {
-    console.error('Lỗi:', error);
-  }
-});
-```
-
----
-
-## 7. Best Practices - Những Thói Quen Tốt Cho Dev Chuyên Nghiệp
-
-### 7.1 Luôn dùng addEventListener() thay vì inline handlers
-
-**Tại sao?** Giống như việc bạn không nên viết CSS inline trong HTML vậy. Code sạch sẽ, dễ maintain hơn nhiều.
-
-```javascript
-// ❌ Cách cũ - trộn lẫn HTML và JS
-<button onclick='doSomething()'>Click me</button>;
-
-// ✅ Cách đúng - tách biệt rõ ràng
-const button = document.querySelector('#myButton');
-button.addEventListener('click', doSomething);
-```
-
-**Ví dụ thực tế:** Bạn có một trang web bán hàng với 100 nút "Thêm vào giỏ". Nếu dùng inline, bạn phải copy-paste 100 lần. Còn với addEventListener, chỉ cần 1 đoạn code là xong!
-
-### 7.2 Event Delegation - Ủy quyền thông minh
-
-**Khái niệm đời thường:** Giống như việc bạn là quản lý quán cà phê. Thay vì phải hướng dẫn từng nhân viên mới về cách pha chế, bạn chỉ cần đưa ra quy định chung và để nhân viên cũ hướng dẫn người mới.
+**Tình huống:** Em có danh sách 30 học sinh, mỗi em có nút "Xem điểm". Thay vì gán 30 event listeners, ta chỉ cần gán 1 cái cho danh sách.
 
 ```html
-<!-- Tưởng tượng đây là danh sách sản phẩm động -->
-<div id="productList">
-  <div class="product">
-    <h3>iPhone 15</h3>
-    <button class="buy-btn" data-product="iphone15">Mua ngay</button>
-  </div>
-  <div class="product">
-    <h3>Samsung Galaxy</h3>
-    <button class="buy-btn" data-product="samsung">Mua ngay</button>
-  </div>
-  <!-- Có thể có thêm nhiều sản phẩm được load bằng AJAX -->
+<div id="danhSachLop">
+	<div class="hoc-sinh" data-ten="An" data-diem="8.5">
+		<span>An</span>
+		<button class="xem-diem">Xem điểm</button>
+	</div>
+	<div class="hoc-sinh" data-ten="Bình" data-diem="7.2">
+		<span>Bình</span>
+		<button class="xem-diem">Xem điểm</button>
+	</div>
+	<!-- ... thêm nhiều học sinh khác -->
 </div>
 
 <script>
-  // ❌ Cách không hiệu quả - gán event cho từng button
-  document.querySelectorAll('.buy-btn').forEach((btn) => {
-    btn.addEventListener('click', handleBuy);
-  });
+	// Chỉ cần 1 event listener cho cả danh sách
+	document.getElementById('danhSachLop').addEventListener('click', function (event) {
+		// Kiểm tra xem có phải nút "Xem điểm" được click không
+		if (event.target.classList.contains('xem-diem')) {
+			const hocSinhDiv = event.target.closest('.hoc-sinh');
+			const ten = hocSinhDiv.dataset.ten;
+			const diem = hocSinhDiv.dataset.diem;
 
-  // ✅ Cách thông minh - chỉ gán 1 event cho container
-  document.getElementById('productList').addEventListener('click', function (e) {
-    if (e.target.classList.contains('buy-btn')) {
-      const productId = e.target.dataset.product;
-      addToCart(productId);
-      showNotification(`Đã thêm ${productId} vào giỏ hàng!`);
-    }
-  });
+			alert(`Điểm của em ${ten}: ${diem}`);
+		}
+	});
 </script>
 ```
 
-**Lợi ích thực tế:**
+### ⚡ Debouncing - Tránh spam
 
--   Performance tốt hơn (ít event listeners hơn)
--   Tự động handle cho element được thêm sau
--   Code ngắn gọn, dễ maintain
-
-### 7.3 Cleanup - Dọn dẹp event listeners
-
-**Tại sao cần cleanup?** Giống như bạn thuê phòng trọ, khi chuyển đi phải trả phòng sạch sẽ. Không cleanup event có thể gây memory leak.
+**Tình huống:** Khi em gõ tìm kiếm, không nên tìm kiếm sau mỗi ký tự mà đợi em gõ xong.
 
 ```javascript
-class ShoppingCart {
-  constructor() {
-    this.handleAddToCart = this.handleAddToCart.bind(this);
-    this.init();
-  }
+// Hàm tạo debounce
+function taoDebounce(hamGoc, thoiGianCho) {
+	let timeoutId;
 
-  init() {
-    // Gán event khi khởi tạo
-    document.addEventListener('click', this.handleAddToCart);
-  }
+	return function (...thamSo) {
+		// Hủy timeout cũ
+		clearTimeout(timeoutId);
 
-  handleAddToCart(e) {
-    if (e.target.classList.contains('add-to-cart')) {
-      // Logic thêm vào giỏ hàng
-      console.log('Đã thêm sản phẩm');
-    }
-  }
-
-  destroy() {
-    // ⭐ Quan trọng: cleanup khi không dùng nữa
-    document.removeEventListener('click', this.handleAddToCart);
-  }
+		// Tạo timeout mới
+		timeoutId = setTimeout(() => {
+			hamGoc.apply(this, thamSo);
+		}, thoiGianCho);
+	};
 }
+
+// Hàm tìm kiếm gốc
+function timKiemMonHoc(tuKhoa) {
+	const monHoc = ['Toán', 'Lý', 'Hóa', 'Sinh', 'Văn', 'Sử', 'Địa', 'Anh'];
+	const ketQua = monHoc.filter((mon) => mon.toLowerCase().includes(tuKhoa.toLowerCase()));
+
+	console.log('Tìm thấy:', ketQua);
+	hienThiKetQua(ketQua);
+}
+
+// Tạo phiên bản debounce
+const timKiemDebounce = taoDebounce(function (event) {
+	timKiemMonHoc(event.target.value);
+}, 300); // Đợi 300ms sau khi ngừng gõ
 
 // Sử dụng
-const cart = new ShoppingCart();
-
-// Khi chuyển trang hoặc component bị unmount
-cart.destroy(); // Dọn dẹp sạch sẽ
+const oTimKiem = document.getElementById('timKiemMonHoc');
+oTimKiem.addEventListener('input', timKiemDebounce);
 ```
-
-### 7.4 Debouncing và Throttling - Tối ưu performance
-
-**Debouncing - Đợi người dùng "ngừng" hành động:**
-
-Giống như việc bạn đợi người bạn ngừng nói rồi mới phản hồi, thay vì chen ngang liên tục.
-
-```javascript
-// Tình huống thực tế: Search box tự động
-function createSearchHandler() {
-  let timeoutId;
-
-  return function (e) {
-    const keyword = e.target.value;
-
-    // Hủy tìm kiếm trước đó nếu user vẫn đang gõ
-    clearTimeout(timeoutId);
-
-    // Đợi 300ms sau khi user ngừng gõ mới search
-    timeoutId = setTimeout(() => {
-      if (keyword.length >= 2) {
-        searchProducts(keyword);
-        console.log(`Đang tìm kiếm: ${keyword}`);
-      }
-    }, 300);
-  };
-}
-
-const searchInput = document.getElementById('searchBox');
-searchInput.addEventListener('input', createSearchHandler());
-```
-
-**Throttling - Giới hạn tần suất thực hiện:**
-
-Giống như việc bạn chỉ cho phép nhân viên báo cáo mỗi 5 phút một lần, không phải lúc nào cũng báo.
-
-```javascript
-// Tình huống thực tế: Lazy loading khi scroll
-function createScrollHandler() {
-  let lastScrollTime = 0;
-  const THROTTLE_DELAY = 100; // 100ms
-
-  return function () {
-    const now = Date.now();
-
-    if (now - lastScrollTime >= THROTTLE_DELAY) {
-      lastScrollTime = now;
-
-      // Kiểm tra nếu scroll gần đáy trang thì load thêm sản phẩm
-      const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
-      if (scrollTop + clientHeight >= scrollHeight - 1000) {
-        loadMoreProducts();
-        console.log('Loading thêm sản phẩm...');
-      }
-    }
-  };
-}
-
-window.addEventListener('scroll', createScrollHandler());
-```
-
-### 7.5 Error Handling trong Events
-
-**Luôn chuẩn bị cho trường hợp xấu nhất:**
-
-```javascript
-document.getElementById('paymentBtn').addEventListener('click', async function (e) {
-  try {
-    // Hiển thị loading
-    e.target.disabled = true;
-    e.target.textContent = 'Đang xử lý...';
-
-    const response = await fetch('/api/payment', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ amount: 500000, product: 'iPhone 15' }),
-    });
-
-    if (!response.ok) {
-      throw new Error(`Lỗi thanh toán: ${response.status}`);
-    }
-
-    const result = await response.json();
-
-    // Thành công
-    showSuccessMessage('Thanh toán thành công!');
-    redirectToSuccessPage();
-  } catch (error) {
-    // Xử lý lỗi một cách thân thiện
-    console.error('Chi tiết lỗi:', error);
-    showErrorMessage('Có lỗi xảy ra khi thanh toán. Vui lòng thử lại!');
-  } finally {
-    // Luôn reset lại button
-    e.target.disabled = false;
-    e.target.textContent = 'Thanh toán';
-  }
-});
-```
-
-### 7.6 Accessibility - Làm web cho mọi người
-
-**Hỗ trợ cả keyboard và screen reader:**
-
-```javascript
-// Làm cho custom dropdown có thể dùng bằng keyboard
-const dropdown = document.getElementById('categoryDropdown');
-const dropdownMenu = dropdown.querySelector('.dropdown-menu');
-
-dropdown.addEventListener('keydown', function (e) {
-  switch (e.key) {
-    case 'Enter':
-    case ' ': // Space
-      e.preventDefault();
-      toggleDropdown();
-      break;
-
-    case 'Escape':
-      closeDropdown();
-      dropdown.focus(); // Trả focus về trigger
-      break;
-
-    case 'ArrowDown':
-      e.preventDefault();
-      openDropdown();
-      focusFirstMenuItem();
-      break;
-  }
-});
-
-// Focus management cho screen reader
-function openDropdown() {
-  dropdownMenu.classList.add('show');
-  dropdown.setAttribute('aria-expanded', 'true');
-}
-
-function closeDropdown() {
-  dropdownMenu.classList.remove('show');
-  dropdown.setAttribute('aria-expanded', 'false');
-}
-```
-
-## 8. Tóm Tắt - Takeaways
-
-🎯 **Event là gì?** Những tương tác của user với trang web (click, scroll, type, v.v.)
-
-🎯 **Cách tốt nhất?** Dùng `addEventListener()` với event delegation khi có thể
-
-🎯 **Performance?** Áp dụng debounce/throttle cho events tần suất cao như scroll, resize
-
-🎯 **Accessibility?** Hỗ trợ keyboard navigation và screen readers
-
-🎯 **Debugging?** Dùng console.log và DevTools để track events
-
-🎯 **Cleanup?** Luôn `removeEventListener()` khi không dùng nữa
-
-**Nhớ nhé:** Event handling làm tốt = UX mượt mà = User happy = Boss happy = Lương tăng! 😄
 
 ---
 
-_Hiểu và sử dụng đúng Events không chỉ giúp bạn tạo ra những trang web tương tác tốt, mà còn thể hiện tính chuyên nghiệp và khả năng tư duy logic trong lập trình._
+## 7. Bài tập thực hành
+
+### 🎯 Bài 1: Máy tính điểm đơn giản
+
+Tạo form nhập điểm 4 môn (Toán, Lý, Hóa, Văn) và tính điểm trung bình khi click nút.
+
+```html
+<!-- HTML mẫu -->
+<div id="mayTinhDiem">
+	<h3>📊 Máy tính điểm trung bình</h3>
+
+	<input type="number" id="diemToan" placeholder="Điểm Toán" min="0" max="10" step="0.1" />
+	<input type="number" id="diemLy" placeholder="Điểm Lý" min="0" max="10" step="0.1" />
+	<input type="number" id="diemHoa" placeholder="Điểm Hóa" min="0" max="10" step="0.1" />
+	<input type="number" id="diemVan" placeholder="Điểm Văn" min="0" max="10" step="0.1" />
+
+	<button id="nutTinhDiem">Tính điểm TB</button>
+	<div id="ketQuaDiem"></div>
+</div>
+```
+
+**Gợi ý:**
+
+-   Dùng addEventListener cho nút "Tính điểm TB"
+-   Lấy giá trị từ các ô input bằng document.getElementById
+-   Kiểm tra điểm có hợp lệ không (0-10)
+-   Hiển thị kết quả và xếp loại
+
+### 🎯 Bài 2: Danh sách công việc tương tác
+
+Tạo todo list cho học sinh với các chức năng:
+
+-   Thêm công việc mới
+-   Đánh dấu hoàn thành
+-   Xóa công việc
+
+**Gợi ý:**
+
+-   Dùng event delegation cho nút xóa và checkbox
+-   Dùng preventDefault() cho form submit
+-   Thay đổi style khi đánh dấu hoàn thành
+
+### 🎯 Bài 3: Trò chơi đoán số
+
+Tạo game đoán số từ 1-100 với:
+
+-   Input nhập số dự đoán
+-   Gợi ý "cao hơn" hoặc "thấp hơn"
+-   Đếm số lần đoán
+
+**Gợi ý:**
+
+-   Dùng Math.random() để tạo số ngẫu nhiên
+-   Xử lý event keypress để cho phép nhấn Enter
+-   Reset game khi đoán đúng
+
+---
+
+## 8. Tham khảo đầy đủ
+
+### 📋 Events chuột phổ biến
+
+| Event         | Mô tả            | Cấp độ   |
+| ------------- | ---------------- | -------- |
+| `click`       | Click chuột trái | Cơ bản   |
+| `dblclick`    | Click đúp        | Cơ bản   |
+| `mousedown`   | Nhấn chuột xuống | Nâng cao |
+| `mouseup`     | Thả chuột ra     | Nâng cao |
+| `mouseover`   | Di chuột vào     | Cơ bản   |
+| `mouseout`    | Di chuột ra      | Cơ bản   |
+| `mousemove`   | Di chuyển chuột  | Nâng cao |
+| `contextmenu` | Click chuột phải | Nâng cao |
+
+### ⌨️ Events bàn phím
+
+| Event      | Mô tả                        | Cấp độ   |
+| ---------- | ---------------------------- | -------- |
+| `keydown`  | Nhấn phím                    | Cơ bản   |
+| `keyup`    | Thả phím                     | Cơ bản   |
+| `keypress` | Nhấn phím ký tự (deprecated) | Nâng cao |
+
+### 📝 Events form
+
+| Event    | Mô tả                 | Cấp độ   |
+| -------- | --------------------- | -------- |
+| `submit` | Gửi form              | Cơ bản   |
+| `change` | Thay đổi giá trị      | Cơ bản   |
+| `input`  | Nhập dữ liệu          | Cơ bản   |
+| `focus`  | Tập trung vào element | Cơ bản   |
+| `blur`   | Mất tập trung         | Cơ bản   |
+| `reset`  | Reset form            | Nâng cao |
+
+### 🌐 Events trang web
+
+| Event              | Mô tả               | Cấp độ   |
+| ------------------ | ------------------- | -------- |
+| `load`             | Tải xong trang      | Nâng cao |
+| `DOMContentLoaded` | DOM sẵn sàng        | Nâng cao |
+| `resize`           | Thay đổi kích thước | Nâng cao |
+| `scroll`           | Cuộn trang          | Nâng cao |
+
+### 💡 Phương thức Event Object
+
+| Phương thức         | Chức năng                | Ví dụ                     |
+| ------------------- | ------------------------ | ------------------------- |
+| `preventDefault()`  | Ngăn hành vi mặc định    | `event.preventDefault()`  |
+| `stopPropagation()` | Ngăn lan truyền          | `event.stopPropagation()` |
+| `target`            | Element gây ra event     | `event.target`            |
+| `currentTarget`     | Element đang xử lý event | `event.currentTarget`     |
+
+---
+
+## 9. Tóm tắt
+
+### 🎯 Events là gì?
+
+-   Các hành động của người dùng hoặc trình duyệt
+-   Cách tạo tương tác cho trang web
+-   Cầu nối giữa HTML và JavaScript
+
+### 🎯 Cách sử dụng cơ bản:
+
+```javascript
+// Template cơ bản
+phanTu.addEventListener('tenEvent', function (event) {
+	// Xử lý sự kiện ở đây
+	console.log('Có sự kiện xảy ra!');
+});
+```
+
+### 🎯 3 điều quan trọng nhất:
+
+1. **addEventListener()** - Cách chính thức để xử lý events
+2. **Event bubbling** - Sự kiện lan từ con lên cha
+3. **Event delegation** - Gán 1 listener cho nhiều elements
+
+### 🎯 Tips để nhớ:
+
+-   Events giống như chuông báo - có ai đó bấm thì có người phản hồi
+-   Luôn kiểm tra dữ liệu đầu vào trước khi xử lý
+-   Sử dụng console.log() để debug events
+-   Event delegation giúp code gọn và hiệu quả hơn
+
+**Lưu ý:** Events là nền tảng của mọi tương tác web. Hiểu rõ Events sẽ giúp em tạo ra những trang web sinh động và thú vị!
