@@ -18,9 +18,9 @@
 
 **Event (Sự kiện)** là những hành động mà người dùng thực hiện trên trang web hoặc những thay đổi xảy ra trong trình duyệt.
 
-**Ví dụ dễ hiểu:** Giống như khi em bấm chuông nhà, có người sẽ ra mở cửa. Trong lập trình web:
+**Ví dụ dễ hiểu:** Giống như khi bấm chuông nhà, sẽ có người ra mở cửa. Trong lập trình web:
 
--   Em click chuột = bấm chuông
+-   Click chuột = bấm chuông
 -   JavaScript xử lý = người ra mở cửa
 -   Kết quả hiển thị = cửa được mở
 
@@ -29,7 +29,7 @@
 const nutBam = document.getElementById('nutBam');
 
 nutBam.addEventListener('click', function () {
-	alert('Em vừa bấm nút!');
+	alert('Bạn vừa bấm nút!');
 });
 ```
 
@@ -43,9 +43,9 @@ Không có Events, trang web chỉ như một tờ báo - chỉ đọc được,
 
 **Ví dụ thực tế:**
 
--   Khi em bấm nút "Nộp bài" → Hiển thị điểm số
--   Khi em gõ vào ô tìm kiếm → Hiện gợi ý môn học
--   Khi em scroll xuống → Tự động load thêm nội dung
+-   Khi bấm nút "Nộp bài" → Hiển thị điểm số
+-   Khi gõ vào ô tìm kiếm → Hiện gợi ý môn học
+-   Khi scroll xuống → Tự động load thêm nội dung
 
 ### 💡 So sánh cách làm cũ vs mới
 
@@ -174,10 +174,10 @@ phanTu.addEventListener('tenSuKien', hamXuLy);
 		const diemTB = (tongDiem / diemLop.length).toFixed(1);
 
 		ketQua.innerHTML = `
-    <h3>📊 Kết quả thống kê lớp:</h3>
-    <p>Số học sinh: ${diemLop.length}</p>
-    <p>Điểm trung bình: ${diemTB}</p>
-    <p>Xếp loại: ${diemTB >= 8 ? 'Giỏi' : diemTB >= 6.5 ? 'Khá' : 'Trung bình'}</p>
+	<h3>📊 Kết quả thống kê lớp:</h3>
+	<p>Số học sinh: ${diemLop.length}</p>
+	<p>Điểm trung bình: ${diemTB}</p>
+	<p>Xếp loại: ${diemTB >= 8 ? 'Giỏi' : diemTB >= 6.5 ? 'Khá' : 'Trung bình'}</p>
   `;
 	}
 
@@ -216,12 +216,12 @@ nutThongTin.addEventListener('click', function (event) {
 
 Sự kiện lan truyền từ phần tử con lên phần tử cha.
 
-**Ví dụ dễ hiểu:** Giống như khi em la to trong lớp, tiếng la sẽ lan ra hành lang, rồi ra sân trường.
+**Ví dụ dễ hiểu:** Giống như khi có ai đó la to trong lớp, tiếng la sẽ lan ra hành lang, rồi ra sân trường.
 
 ```html
 <div id="lop" class="lop">
 	<div id="ban" class="ban">
-		<button id="hocSinh" class="hoc-sinh">Em An</button>
+		<button id="hocSinh" class="hoc-sinh">An</button>
 	</div>
 </div>
 
@@ -238,14 +238,14 @@ Sự kiện lan truyền từ phần tử con lên phần tử cha.
 
 	// Lắng nghe ở cấp học sinh
 	document.getElementById('hocSinh').addEventListener('click', function () {
-		console.log('👤 Em An vừa được click');
+		console.log('👤 Học sinh vừa được click');
 	});
 </script>
 ```
 
-**Khi click vào "Em An", kết quả sẽ là:**
+**Khi click vào "An", kết quả sẽ là:**
 
-1. "👤 Em An vừa được click"
+1. "👤 Học sinh vừa được click"
 2. "🪑 Có ai đó động vào bàn này"
 3. "🏫 Cô giáo nghe thấy có tiếng động trong lớp"
 
@@ -268,7 +268,7 @@ document.getElementById('lop').addEventListener(
 
 ```javascript
 document.getElementById('hocSinh').addEventListener('click', function (event) {
-	console.log('👤 Em An được click');
+	console.log('👤 Học sinh được click');
 
 	// Ngăn sự kiện lan truyền lên các phần tử cha
 	event.stopPropagation();
@@ -283,7 +283,7 @@ document.getElementById('hocSinh').addEventListener('click', function (event) {
 
 ### 🎯 Event Delegation (Ủy quyền sự kiện)
 
-**Tình huống:** Em có danh sách 30 học sinh, mỗi em có nút "Xem điểm". Thay vì gán 30 event listeners, ta chỉ cần gán 1 cái cho danh sách.
+**Tình huống:** Có danh sách 30 học sinh, mỗi người có nút "Xem điểm". Thay vì gán 30 event listeners, chỉ cần gán 1 cái cho danh sách.
 
 ```html
 <div id="danhSachLop">
@@ -307,7 +307,7 @@ document.getElementById('hocSinh').addEventListener('click', function (event) {
 			const ten = hocSinhDiv.dataset.ten;
 			const diem = hocSinhDiv.dataset.diem;
 
-			alert(`Điểm của em ${ten}: ${diem}`);
+			alert(`Điểm của ${ten}: ${diem}`);
 		}
 	});
 </script>
@@ -315,7 +315,7 @@ document.getElementById('hocSinh').addEventListener('click', function (event) {
 
 ### ⚡ Debouncing - Tránh spam
 
-**Tình huống:** Khi em gõ tìm kiếm, không nên tìm kiếm sau mỗi ký tự mà đợi em gõ xong.
+**Tình huống:** Khi gõ tìm kiếm, không nên tìm kiếm sau mỗi ký tự mà đợi người dùng gõ xong.
 
 ```javascript
 // Hàm tạo debounce
@@ -497,4 +497,4 @@ phanTu.addEventListener('tenEvent', function (event) {
 -   Sử dụng console.log() để debug events
 -   Event delegation giúp code gọn và hiệu quả hơn
 
-**Lưu ý:** Events là nền tảng của mọi tương tác web. Hiểu rõ Events sẽ giúp em tạo ra những trang web sinh động và thú vị!
+**Lưu ý:** Events là nền tảng của mọi tương tác web. Hiểu rõ Events sẽ giúp tạo ra những trang web sinh động và thú vị!
