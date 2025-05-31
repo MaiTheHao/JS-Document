@@ -22,4 +22,8 @@ Tài liệu này tổng hợp toàn bộ các chủ đề quan trọng về Java
 
 ---
 
+## ℹ️ [Về chúng tôi](aboutus.md)
+
+-   Tìm hiểu về nhóm tác giả, mục tiêu và điều khoản sử dụng tài liệu.
+
 > **Lưu ý:** Hãy học theo thứ tự từ nền tảng đến nâng cao để đạt hiệu quả tốt nhất.
