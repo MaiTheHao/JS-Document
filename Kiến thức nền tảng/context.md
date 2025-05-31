@@ -98,7 +98,6 @@ JS-Document/
 -   **100% tiếng Việt**, trừ thuật ngữ kỹ thuật không dịch được
 -   **Thân thiện, gần gũi** như anh/chị trong gia đình
 -   **Nghiêm túc nhưng không khô khan**
--   **Dễ hiểu cho học sinh cấp 3**
 
 ### Thuật ngữ chuẩn:
 
@@ -193,21 +192,21 @@ console.log(ketQua); // [1, 2, 3, 4]
 
 ## 🎯 Level phân cấp kiến thức
 
-### Cấp 3 (Cơ bản):
+### Cơ bản:
 
 -   Cú pháp đơn giản, dễ hiểu
 -   Ví dụ thực tế gần gũi
 -   Focus vào sử dụng, ít lý thuyết sâu
 -   70% nội dung tập trung ở đây
 
-### Lớp 11-12 (Nâng cao):
+### Nâng cao:
 
 -   Cú pháp ES6+
 -   Khái niệm sâu hơn
 -   Bài tập phức tạp
 -   20% nội dung
 
-### Đại học/Làm việc (Chuyên sâu):
+### Chuyên sâu:
 
 -   Advanced concepts
 -   Performance optimization

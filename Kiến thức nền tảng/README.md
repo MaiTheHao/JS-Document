@@ -16,9 +16,13 @@ Tài liệu này tổng hợp các kiến thức nền tảng quan trọng nhấ
 
 ## 📓 [6. Phạm Vi Scope (Scope)](Phạm%20vi%20Scope/README.md)
 
+## 🟦 [7. Mảng (Array)](Array/README.md)
+
+## 🟩 [8. Chuỗi (String)](String/README.md)
+
 ---
 
-## 🚦 [7. Bất Đồng Bộ (Asynchronous JavaScript)](Bất%20đồng%20bộ/README.md)
+## 🚦 [9. Bất Đồng Bộ (Asynchronous JavaScript)](Bất%20đồng%20bộ/README.md)
 
 ---
 

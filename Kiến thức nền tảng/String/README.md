@@ -51,42 +51,17 @@ console.log(thongBao); // "Em Trần Thị Lan đạt điểm 8.5 môn Toán"
 
 ## 3. Cách tạo chuỗi
 
-### Cách 1: Dùng dấu ngoặc kép (khuyến khích)
+### Cách 1: Dùng dấu ngoặc kép/đơn (khuyến khích)
 
 ```javascript
 const hoTen = 'Nguyễn Văn An';
 const lop = '10A1';
 ```
 
-### Cách 2: Dùng dấu ngoặc đơn
-
-```javascript
-const monHoc = 'Toán học';
-const phong = 'A101';
-```
-
-### Cách 3: Dùng dấu backtick (nâng cao)
-
-```javascript
-const tenTruong = `THPT Nguyễn Du`;
-const diaChi = `123 Đường ABC, Quận 1`;
-```
-
 ### Cách 4: Dùng từ khóa new (ít dùng)
 
 ```javascript
 const chuoi = new String('Xin chào');
-```
-
-### 💡 Lưu ý về dấu ngoặc trong chuỗi
-
-```javascript
-// Đúng - dùng dấu khác nhau
-const cauNoi = "Hôm nay trời 'đẹp' quá!";
-const thongBao = 'Cô giáo nói: "Các em làm bài tập về nhà"';
-
-// Sai - dùng cùng loại dấu
-// const loi = "Cô nói: "Làm bài tập""; // ❌ Lỗi!
 ```
 
 ---

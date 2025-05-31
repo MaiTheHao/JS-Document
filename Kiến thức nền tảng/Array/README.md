@@ -297,7 +297,7 @@ console.log(diemKha); // [8, 9, 7, 10]
 
 ## 12. Tham khảo đầy đủ các phương thức Array
 
-### 📋 Phương thức cơ bản (Dành cho cấp 3)
+### 📋 Phương thức cơ bản
 
 | Phương thức  | Chức năng             | Ví dụ                |
 | ------------ | --------------------- | -------------------- |
@@ -331,7 +331,7 @@ console.log(diemKha); // [8, 9, 7, 10]
 | `splice(start, count, ...items)` | Xóa và thêm  | Có                 | `arr.splice(1, 2, "mới")` |
 | `concat(arr2)`                   | Nối hai mảng | Không              | `arr1.concat(arr2)`       |
 
-### 🔄 Phương thức lặp (Nâng cao - Lớp 11, 12)
+### 🔄 Phương thức lặp
 
 | Phương thức         | Chức năng                              | Trả về      | Ví dụ                                    |
 | ------------------- | -------------------------------------- | ----------- | ---------------------------------------- |
@@ -355,6 +355,12 @@ diem.sort((a, b) => a - b); // [6, 8, 9, 10]
 
 // Sắp xếp số giảm dần
 diem.sort((a, b) => b - a); // [10, 9, 8, 6]
+
+// Giải thích sort():
+// - Nếu trả về số âm: a đứng trước b
+// - Nếu trả về số dương: a đứng sau b
+// - Nếu trả về 0: giữ nguyên vị trí a và b
+// Người ta sử dụng 3 loại giá trị này để xác định thứ tự sắp xếp.
 
 // Đảo ngược
 diem.reverse(); // Đảo ngược thứ tự hiện tại
@@ -411,10 +417,4 @@ console.log(
 
 ## 📚 Kết luận
 
-Mảng là công cụ cực kỳ mạnh mẽ trong JavaScript! Với các em cấp 3:
-
--   **Tập trung vào:** push, pop, length, indexOf, includes, sort
--   **Luyện tập:** Làm nhiều bài tập về quản lý danh sách
--   **Nâng cao:** Khi lên lớp 11-12 sẽ học thêm map, filter, reduce
-
-**Tip cuối:** Code nhiều vào, đừng chỉ đọc lý thuyết. Array như học đi xe máy vậy, phải thực hành mới thuần thục được!
+Code nhiều vào, đừng chỉ đọc lý thuyết. Array như học đi xe máy vậy, phải thực hành mới thuần thục được!
