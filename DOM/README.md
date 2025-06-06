@@ -234,32 +234,7 @@ function createTable() {
 }
 ```
 
-## 2. Event Handling với Form Validation
-
-```javascript
-const form = document.querySelector('form');
-const nameInput = document.getElementById('name');
-const emailInput = document.getElementById('email');
-
-form.addEventListener('submit', function (event) {
-	if (nameInput.value === '' || emailInput.value === '') {
-		event.preventDefault(); // Ngăn form submit
-		alert('Vui lòng điền đầy đủ thông tin!');
-	}
-});
-
-// Real-time validation
-emailInput.addEventListener('input', function (event) {
-	const email = event.target.value;
-	const isValid = email.includes('@') && email.includes('.');
-
-	if (!isValid && email.length > 0) {
-		event.target.style.borderColor = 'red';
-	} else {
-		event.target.style.borderColor = '';
-	}
-});
-```
+## 2. [Event Handling](../Events/README.md)
 
 ## 3. DOM Navigation và Manipulation
 
@@ -284,22 +259,14 @@ const specificElements = document.querySelectorAll('div.container > p:first-chil
 
 # Luyện Tập
 
-1.  **Thay đổi màu nền của một phần tử khi click vào nó.**
-2.  **Thêm một phần tử mới vào cuối danh sách.**
-3.  **Xóa một phần tử khỏi danh sách.**
-4.  **Thay đổi kích thước của một phần tử.**
-5.  **Hiển thị một thông báo khi chuột di chuyển qua một phần tử.**
-6.  **Hiển thị một thông báo khi một phần tử được click.**
-    _Danh sách bài giải ở đây [**solves**](./solves)_
+1.  **Thay đổi màu nền của một phần tử khi click vào nó.** [**lời giải**](./solves/B1.html)
+2.  **Thêm một phần tử mới vào cuối danh sách.** [**lời giải**](./solves/B2.html)
+3.  **Xóa một phần tử khỏi danh sách.** [**lời giải**](./solves/B3.html)
+4.  **Thay đổi kích thước của một phần tử.** [**lời giải**](./solves/B4.html)
+5.  **Hiển thị một thông báo khi chuột di chuyển qua một phần tử.** [**lời giải**](./solves/B5.html)
+6.  **Hiển thị một thông báo khi một phần tử được click.** [**lời giải**](./solves/B6.html)
 
-## Bài Tập Nâng Cao
-
-7. **Tạo một form với real-time validation**
-8. **Implement drag and drop functionality**
-9. **Tạo một image gallery với navigation**
-10. **Build một todo list với local storage**
-11. **Tạo một accordion component**
-12. **Implement infinite scroll**
+> _Danh sách bài giải ở đây [**solves**](./solves)_
 
 ## Các bài tập thú vị hơn (không có sẵn lời giải)
 
